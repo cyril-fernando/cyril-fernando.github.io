@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyril Fernando - Data Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="main-content">
+        <header class="page-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="header-text">
+                        <h1>
+                            <span style="--i:1">C</span><span style="--i:2">y</span><span style="--i:3">r</span><span style="--i:4">i</span><span style="--i:5">l</span>
+                            <span style="--i:6"> </span>
+                            <span style="--i:7">F</span><span style="--i:8">e</span><span style="--i:9">r</span><span style="--i:10">n</span><span style="--i:11">a</span><span style="--i:12">n</span><span style="--i:13">d</span><span style="--i:14">o</span>
+                        </h1>
+                        <p class="subtitle">💼 Data Engineering Portfolio</p>
+                        <p class="description">Designing scalable, cloud-native data pipelines that power decision-making.</p>
+                    </div>
+                    <img src="img/personal_pic.jpg" alt="Cyril Fernando" class="profile-image-square">
+                </div>
+                <button id="theme-toggle" class="theme-toggle-btn"><i class="fas fa-moon"></i></button>
+            </div>
+        </header>
+
+        <section id="about">
+            <div class="container">
+                <h2 class="wavy-hover"><i class="fas fa-user"></i> <span>A</span><span>b</span><span>o</span><span>u</span><span>t</span> <span>M</span><span>e</span></h2>
+                <p><i class="fas fa-graduation-cap"></i> A recent Electrical Engineering graduate with a strong foundation in analytical thinking and problem-solving, I'm passionate about transitioning into Data Engineering. <i class="fas fa-cogs"></i> I'm proficient in SQL and Python, with hands-on experience in building data pipelines and developing dashboards. <i class="fas fa-lightbulb"></i> I'm a quick learner, driven to transform raw data into actionable insights and continuously expand my skill set in a dynamic professional environment.</p>
+            </div>
+        </section>
+
+        <section id="contact-me">
+            <div class="container">
+                <h2 class="wavy-hover"><i class="fas fa-envelope"></i> <span>C</span><span>o</span><span>n</span><span>t</span><span>a</span><span>c</span><span>t</span> <span>M</span><span>e</span></h2>
+                <div class="contact-links">
+                    <a href="https://github.com/cyril-fernando" class="btn"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/cyfernando" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects-list">
+            <div class="container">
+                <h2 class="wavy-hover"><i class="fas fa-project-diagram"></i> <span>F</span><span>e</span><span>a</span><span>t</span><span>u</span><span>r</span><span>e</span><span>d</span> <span>P</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span><span>s</span></h2>
+                <ul>
+                    <li><a href="#sql-data-warehouse-project">🛒 SQL Data Warehouse Project</a></li>
+                    <li><a href="#cafe-sales-analysis-dashboard">🏗️ Cafe Sales Analysis Dashboard</a></li>
+                    <li><a href="#automated-drip-irrigation-system">☁️ Automated Drip Irrigation System</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2 class="wavy-hover"><i class="fas fa-tasks"></i> <span>P</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span><span>s</span></h2>
+                <div class="projects-grid">
+                    <div class="project-card" id="sql-data-warehouse-project">
+                        <div class="project-content">
+                            <h3 class="wavy-hover"><span>S</span><span>Q</span><span>L</span> <span>D</span><span>a</span><span>t</span><span>a</span> <span>W</span><span>a</span><span>r</span><span>e</span><span>h</span><span>o</span><span>u</span><span>s</span><span>e</span> <span>P</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span></h3>
+                            <img src="img/data_architecture.png" alt="SQL Data Warehouse Project" class="project-image-horizontal">
+
+                            <p><strong><i class="fas fa-question-circle"></i> Scenario:</strong> Addressing the challenge of disparate raw data sources to enable efficient analytics and insights.</p>
+                            <p><strong><i class="fas fa-lightbulb"></i> Solution:</strong> Implemented a medallion pipeline in SQL Server, transforming raw CSVs into analytics-ready tables with a star schema. Developed reusable ETL scripts for automated data transformation.</p>
+                            <p><strong><i class="fas fa-chart-line"></i> Impact:</strong> Improved data quality and consistency through cleansing, normalization, and standardization. Enhanced SQL Server performance by adding indexes, optimizing queries, and improving the data loading process.</p>
+                            <p><strong><i class="fas fa-tools"></i> Stack:</strong> SQL Server</p>
+                            <p><strong><i class="fas fa-vial"></i> Tested On:</strong> Local SQL Server</p>
+                            <div class="project-tags">
+                                <span><i class="fas fa-tag"></i> ETL</span>
+                                <span><i class="fas fa-tag"></i> Star Schema</span>
+                                <span><i class="fas fa-tag"></i> Data Warehousing</span>
+                            </div>
+                            <a href="https://github.com/cyril-fernando/sql-data-warehouse-project" target="_blank" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-card" id="cafe-sales-analysis-dashboard">
+                        <div class="project-content">
+                            <h3 class="wavy-hover"><span>C</span><span>a</span><span>f</span><span>e</span> <span>S</span><span>a</span><span>l</span><span>e</span><span>s</span> <span>A</span><span>n</span><span>a</span><span>l</span><span>y</span><span>s</span><span>i</span><span>s</span> <span>D</span><span>a</span><span>s</span><span>h</span><span>b</span><span>o</span><span>a</span><span>r</span><span>d</span></h3>
+                            <div class="project-image-gallery">
+                                <img src="img/cafe_sales_2023_page-0001.jpg" alt="Cafe Sales Analysis Dashboard Page 1" class="project-image-horizontal">
+                                <img src="img/cafe_sales_2023_page-0002.jpg" alt="Cafe Sales Analysis Dashboard Page 2" class="project-image-horizontal">
+                            </div>
+                            <p><strong><i class="fas fa-question-circle"></i> Scenario:</strong> Cafe struggled with unorganized sales records, hindering effective decision-making on product and marketing.</p>
+                            <p><strong><i class="fas fa-lightbulb"></i> Solution:</strong> Cleaned <strong>10,000 rows</strong> of MySQL sales data, standardizing records and building calculated fields for insights. Delivered an interactive Power BI dashboard with KPIs and filters.</p>
+                            <p><strong><i class="fas fa-chart-line"></i> Impact:</strong> Key trends discovered: sales peak Thursday–Monday, seasonal spikes in March/October, and coffee as the top bulk seller. Improved decision-making.</p>
+                            <p><strong><i class="fas fa-tools"></i> Stack:</strong> MySQL · Power BI</p>
+                            <p><strong><i class="fas fa-vial"></i> Tested On:</strong> Local MySQL + Power BI Desktop</p>
+                            <div class="project-tags">
+                                <span><i class="fas fa-tag"></i> Data Cleaning</span>
+                                <span><i class="fas fa-tag"></i> Data Visualization</span>
+                            </div>
+                            <a href="https://github.com/cyril-fernando/cafe-sales-sql-powerbi" target="_blank" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-card" id="automated-drip-irrigation-system">
+                        <div class="project-content">
+                            <h3 class="wavy-hover"><span>A</span><span>u</span><span>t</span><span>o</span><span>m</span><span>a</span><span>t</span><span>e</span><span>d</span> <span>D</span><span>r</span><span>i</span><span>p</span> <span>I</span><span>r</span><span>r</span><span>i</span><span>g</span><span>a</span><span>t</span><span>i</span><span>o</span><span>n</span> <span>S</span><span>y</span><span>s</span><span>t</span><span>e</span><span>m</span></h3>
+                            <p><strong><i class="fas fa-question-circle"></i> Scenario:</strong> Vineyards faced significant water waste and high labor costs with traditional irrigation, requiring an automated, off-grid solution.</p>
+                            <p><strong><i class="fas fa-lightbulb"></i> Solution:</strong> Designed and built an off-grid drip irrigation system. Programmed an ESP32 to monitor soil moisture and trigger pump activation, integrating a solar panel and battery for autonomous operation.</p>
+                            <p><strong><i class="fas fa-chart-line"></i> Impact:</strong> Achieved a significant <strong>46.42% reduction in water usage</strong> during a six-week field test, while maintaining equal grape yield. This led to substantial cost savings in water resources and labor, demonstrating the potential for sustainable agricultural practices.</p>
+                            <p><strong><i class="fas fa-tools"></i> Stack:</strong> ESP32</p>
+                            <p><strong><i class="fas fa-vial"></i> Tested On:</strong> Field Test</p>
+                            <div class="project-tags">
+                                <span><i class="fas fa-tag"></i> Automation</span>
+                                <span><i class="fas fa-tag"></i> IoT</span>
+                                <span><i class="fas fa-tag"></i> Embedded Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
