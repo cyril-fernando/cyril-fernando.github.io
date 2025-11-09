@@ -2,8 +2,6 @@
 .idea/
 .vscode/
 
-# Gemini specific files
-GEMINI.md
 
 # Private files
 img/personal_pic.jpg
