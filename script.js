@@ -23,23 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // --- Visits Counter (CountAPI) ---
-    // Uses a namespace 'cyril-portfolio' and key 'visits'. Use unique key if needed.
-    // Falls back to local storage simulator if API fails or for demo.
-    const visitElement = document.querySelector('.visits-count');
-    if (visitElement) {
-        // You can change 'cyril-portfolio-live' to a unique string for your site
-        fetch('https://api.countapi.xyz/hit/cyril-portfolio-live-v1/visits')
-            .then(response => response.json())
-            .then(data => {
-                // Formatting number with commas if needed, but simple addition here
-                visitElement.innerHTML = `<i class="fas fa-eye"></i> ${data.value + 123}`;
-            })
-            .catch(err => {
-                // Fail silently in production or use fallback
-                visitElement.innerHTML = `<i class="fas fa-eye"></i> 123`;
-            });
-    }
 
     // --- Theme Toggle Logic ---
     const themeBtn = document.getElementById('theme-toggle');

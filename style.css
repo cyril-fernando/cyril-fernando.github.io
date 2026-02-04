@@ -440,41 +440,6 @@ section {
     color: var(--accent-color);
 }
 
-/* Visits Counter */
-.visits-counter {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--glass-border);
-    padding: 8px 16px;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    z-index: 100;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s;
-}
-
-.visits-counter:hover {
-    transform: translateY(-3px);
-    border-color: var(--accent-color);
-}
-
-.visits-count {
-    color: var(--accent-color);
-    font-weight: 600;
-}
-
-body.light-mode .visits-counter {
-    background: rgba(255, 255, 255, 0.85);
-    color: var(--text-secondary);
-    border-color: rgba(0, 0, 0, 0.1);
-}
 
 .project-tech {
     font-size: 0.85rem;
