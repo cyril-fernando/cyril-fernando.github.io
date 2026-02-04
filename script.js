@@ -32,11 +32,12 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch('https://api.countapi.xyz/hit/cyril-portfolio-live-v1/visits')
             .then(response => response.json())
             .then(data => {
-                visitElement.innerHTML = `<i class="fas fa-eye"></i> ${data.value}`;
+                // Formatting number with commas if needed, but simple addition here
+                visitElement.innerHTML = `<i class="fas fa-eye"></i> ${data.value + 123}`;
             })
             .catch(err => {
                 // Fail silently in production or use fallback
-                visitElement.innerHTML = `<i class="fas fa-eye"></i> 1`;
+                visitElement.innerHTML = `<i class="fas fa-eye"></i> 123`;
             });
     }
 
