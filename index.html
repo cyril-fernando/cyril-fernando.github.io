@@ -1,163 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyril Fernando - Data Engineer</title>
+    <title>Cyril Fernando | Data Engineer</title>
+    <meta name="description"
+        content="Portfolio of Cyril Fernando, a Data Engineer specializing in scalable pipelines, BigQuery, dbt, and analytics.">
+    <meta name="keywords" content="Data Engineer, ETL, BigQuery, dbt, Python, SQL, Portfolio, Cyril Fernando">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <main class="main-content">
-        <header class="page-header">
-            <div class="container">
-                <div class="header-content">
-                    <div class="header-text">
-                        <h1>
-                            <span style="--i:1">C</span><span style="--i:2">y</span><span style="--i:3">r</span><span style="--i:4">i</span><span style="--i:5">l</span>
-                            <span style="--i:6"> </span>
-                            <span style="--i:7">F</span><span style="--i:8">e</span><span style="--i:9">r</span><span style="--i:10">n</span><span style="--i:11">a</span><span style="--i:12">n</span><span style="--i:13">d</span><span style="--i:14">o</span>
-                        </h1>
-                        <p class="subtitle">💼 Data Engineering Portfolio</p>
-                        <p class="description">Designing scalable, cloud-native data pipelines that power decision-making.</p>
-                    </div>
-                    <img src="img/personal_pic.jpg" alt="Cyril Fernando" class="profile-image-square">
+
+    <!-- Sticky Navigation -->
+    <nav class="navbar">
+        <a href="#" class="nav-brand">Cyril<span>.</span></a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Work</a>
+            <a href="#fun-projects">Playground</a>
+            <a href="#contact">Contact</a>
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-content fade-in-up">
+            <div class="profile-img-container">
+                <img src="img/personal_pic.jpg" alt="Cyril Fernando" class="profile-img">
+            </div>
+            <h1>Cyril Fernando</h1>
+            <p class="role">Data Engineer & Analytics Specialist</p>
+            <p class="tagline">Designing scalable, cloud-native data pipelines that transform raw chaos into
+                decision-making power.</p>
+
+            <div class="hero-btns">
+                <a href="#projects" class="btn btn-primary">View Work</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2 class="section-title">About Me</h2>
+                <p>I'm a self-starter who doesn't wait for a roadmap. Pivoting from Electrical to Data Engineering, I've
+                    built my skills by diving deep-learning not just how to use tools, but how to master them. When I
+                    learn something, I learn it completely, ensuring my work is robust, not just functional.</p>
+                <p>I'm just starting out, which means I bring a hunger to prove myself and a fresh perspective to every
+                    challenge.</p>
+
+                <div class="skills-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">BigQuery</span>
+                    <span class="skill-tag">dbt</span>
+                    <span class="skill-tag">Dagster</span>
+                    <span class="skill-tag">Docker</span>
                 </div>
-                <button id="theme-toggle" class="theme-toggle-btn"><i class="fas fa-moon"></i></button>
             </div>
-        </header>
-
-        <section id="about">
-            <div class="container">
-                <h2 class="wavy-hover"><i class="fas fa-user"></i> <span>A</span><span>b</span><span>o</span><span>u</span><span>t</span> <span>M</span><span>e</span></h2>
-                <p><i class="fas fa-graduation-cap"></i> A recent Electrical Engineering graduate with a strong foundation in analytical thinking and problem-solving, I'm passionate about transitioning into Data Engineering. <i class="fas fa-cogs"></i> I'm proficient in SQL and Python, with hands-on experience in building data pipelines and developing dashboards. <i class="fas fa-lightbulb"></i> I'm a quick learner, driven to transform raw data into actionable insights and continuously expand my skill set in a dynamic professional environment.</p>
+            <!-- Potentially add a visual element or code snippet graphic here on the right, 
+                 but for now keeping it balanced text/white space -->
+            <div style="text-align:center; opacity: 0.5;">
+                <i class="fas fa-network-wired" style="font-size: 10rem; color: var(--accent-glaw);"></i>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact-me">
-            <div class="container">
-                <h2 class="wavy-hover"><i class="fas fa-envelope"></i> <span>C</span><span>o</span><span>n</span><span>t</span><span>a</span><span>c</span><span>t</span> <span>M</span><span>e</span></h2>
-                <div class="contact-links">
-                    <a href="https://github.com/cyril-fernando" class="btn"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://www.linkedin.com/in/cyfernando" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects-list">
-            <div class="container">
-                <h2 class="wavy-hover"><i class="fas fa-project-diagram"></i> <span>F</span><span>e</span><span>a</span><span>t</span><span>u</span><span>r</span><span>e</span><span>d</span> <span>P</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span><span>s</span></h2>
-                <ul>
-                    <li><a href="#fraud-detection-pipeline">💳 Credit Card Transaction Data Pipeline</a></li>
-                    <li><a href="#sql-data-warehouse-project">🛒 SQL Data Warehouse Project</a></li>
-                    <li><a href="#cafe-sales-analysis-dashboard">🏗️ Cafe Sales Analysis Dashboard</a></li>
-                    <li><a href="#automated-drip-irrigation-system">☁️ Automated Drip Irrigation System</a></li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="projects">
-    <div class="container">
-        <h2 class="wavy-hover"><i class="fas fa-tasks"></i> <span>P</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span><span>s</span></h2>
+    <!-- Featured Projects (Work) -->
+    <section id="projects" class="container">
+        <h2 class="section-title">Featured Work</h2>
         <div class="projects-grid">
 
-            <!-- NEW: Credit Card Transaction Data Pipeline -->
-            <div class="project-card" id="fraud-detection-pipeline">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="img-container" style="padding: 20px; background: rgba(0,0,0,0.2);">
+                    <img src="img/fraud-pipeline-architecture.png" alt="Pipeline Architecture"
+                        class="project-img contain-img">
+                </div>
                 <div class="project-content">
-                    <h3 class="wavy-hover">
-                        <span>C</span><span>r</span><span>e</span><span>d</span><span>i</span><span>t</span>
-                        <span> </span>
-                        <span>C</span><span>a</span><span>r</span><span>d</span>
-                        <span> </span>
-                        <span>T</span><span>r</span><span>a</span><span>n</span><span>s</span><span>a</span><span>c</span><span>t</span><span>i</span><span>o</span><span>n</span>
-                        <span> </span>
-                        <span>D</span><span>a</span><span>t</span><span>a</span>
-                        <span> </span>
-                        <span>P</span><span>i</span><span>p</span><span>e</span><span>l</span><span>i</span><span>n</span><span>e</span>
-                    </h3>
+                    <h3 class="project-title">Credit Card Data Pipeline</h3>
+                    <p class="project-tech">Python · dbt · Dagster · BigQuery</p>
 
-                    <img src="img/fraud-pipeline-architecture.png"
-                         alt="Credit Card Transaction Data Pipeline Architecture"
-                         class="project-image-horizontal">
-
-                    <p><strong><i class="fas fa-question-circle"></i> Scenario:</strong> Fraud analysts needed clean, well-modeled credit card transaction data instead of a single raw CSV export, so they could build dashboards and experiment with fraud signals.</p>
-                    <p><strong><i class="fas fa-lightbulb"></i> Solution:</strong> Designed a Dockerised batch pipeline where Dagster orchestrates dbt transformations on BigQuery. Raw Kaggle transactions are ingested into staging tables, refined into intermediate models, and published as marts optimised for fraud analytics.</p>
-                    <p><strong><i class="fas fa-chart-line"></i> Impact:</strong> Processed 284K+ transactions through an automated medallion pipeline with 100% test pass rate across 15 dbt tests, reducing deployment time by 83% via CI/CD and enabling repeatable fraud analytics on consistent, documented marts.</p>
-                    <p><strong><i class="fas fa-tools"></i> Stack:</strong> Python · dbt · Dagster · BigQuery · Docker · GitHub Actions</p>
-                    <p><strong><i class="fas fa-vial"></i> Tested On:</strong> Local Docker + GCP BigQuery (dev dataset)</p>
-
-                    <div class="project-tags">
-                        <span><i class="fas fa-tag"></i> ETL / ELT</span>
-                        <span><i class="fas fa-tag"></i> Orchestration</span>
-                        <span><i class="fas fa-tag"></i> Analytics Engineering</span>
-                    </div>
+                    <ul class="project-bullets">
+                        <li><strong>Problem:</strong> Analysts relied on raw, messy CSV exports for fraud detection.
+                        </li>
+                        <li><strong>Solution:</strong> Built a Dockerised Dagster & dbt pipeline to automate ingestion.
+                        </li>
+                        <li><strong>Result:</strong> 284k+ transactions processed w/ 100% data quality & automated
+                            testing.</li>
+                    </ul>
 
                     <a href="https://github.com/cyril-fernando/credit-card-transaction-data-pipeline"
-                       target="_blank"
-                       class="project-link">
-                        View on GitHub <i class="fas fa-arrow-right"></i>
-                    </a>
+                        class="project-link" target="_blank">View Code <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
-            <!-- EXISTING: SQL Data Warehouse Project -->
-            <div class="project-card" id="sql-data-warehouse-project">
+            <!-- Project 2 -->
+            <div class="project-card">
+                <img src="img/data_architecture.png" alt="SQL Data Warehouse" class="project-img">
                 <div class="project-content">
-                    <h3 class="wavy-hover"><span>S</span><span>Q</span><span>L</span> <span>D</span><span>a</span><span>t</span><span>a</span> <span>W</span><span>a</span><span>r</span><span>e</span><span>h</span><span>o</span><span>u</span><span>s</span><span>e</span> <span>P</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span></h3>
-                    <img src="img/data_architecture.png" alt="SQL Data Warehouse Project" class="project-image-horizontal">
+                    <h3 class="project-title">SQL Data Warehouse</h3>
+                    <p class="project-tech">SQL Server · ETL · Star Schema</p>
 
-                    <p><strong><i class="fas fa-question-circle"></i> Scenario:</strong> Addressing the challenge of disparate raw data sources to enable efficient analytics and insights.</p>
-                    <p><strong><i class="fas fa-lightbulb"></i> Solution:</strong> Implemented a medallion pipeline in SQL Server, transforming raw CSVs into analytics-ready tables with a star schema. Developed reusable ETL scripts for automated data transformation.</p>
-                    <p><strong><i class="fas fa-chart-line"></i> Impact:</strong> Improved data quality and consistency through cleansing, normalization, and standardization. Enhanced SQL Server performance by adding indexes, optimizing queries, and improving the data loading process.</p>
-                    <p><strong><i class="fas fa-tools"></i> Stack:</strong> SQL Server</p>
-                    <p><strong><i class="fas fa-vial"></i> Tested On:</strong> Local SQL Server</p>
-                    <div class="project-tags">
-                        <span><i class="fas fa-tag"></i> ETL</span>
-                        <span><i class="fas fa-tag"></i> Star Schema</span>
-                        <span><i class="fas fa-tag"></i> Data Warehousing</span>
-                    </div>
-                    <a href="https://github.com/cyril-fernando/sql-data-warehouse-project" target="_blank" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                    <ul class="project-bullets">
+                        <li><strong>Problem:</strong> Disparate raw sources made reporting slow and unreliable.</li>
+                        <li><strong>Solution:</strong> Engineered a Medallion Architecture ETL pipeline in SQL Server.
+                        </li>
+                        <li><strong>Result:</strong> Created a trusted, high-performance Star Schema for analytics.</li>
+                    </ul>
+
+                    <a href="https://github.com/cyril-fernando/sql-data-warehouse-project" class="project-link"
+                        target="_blank">View Code <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
-            <!-- EXISTING: Cafe Sales Analysis Dashboard -->
-            <div class="project-card" id="cafe-sales-analysis-dashboard">
+            <!-- Project 3 -->
+            <div class="project-card">
+                <img src="img/cafe_sales_2023_page-0001.jpg" alt="Dashboard" class="project-img">
                 <div class="project-content">
-                    <h3 class="wavy-hover"><span>C</span><span>a</span><span>f</span><span>e</span> <span>S</span><span>a</span><span>l</span><span>e</span><span>s</span> <span>A</span><span>n</span><span>a</span><span>l</span><span>y</span><span>s</span><span>i</span><span>s</span> <span>D</span><span>a</span><span>s</span><span>h</span><span>b</span><span>o</span><span>a</span><span>r</span><span>d</span></h3>
-                    <div class="project-image-gallery">
-                        <img src="img/cafe_sales_2023_page-0001.jpg" alt="Cafe Sales Analysis Dashboard Page 1" class="project-image-horizontal">
-                        <img src="img/cafe_sales_2023_page-0002.jpg" alt="Cafe Sales Analysis Dashboard Page 2" class="project-image-horizontal">
-                    </div>
-                    <p><strong><i class="fas fa-question-circle"></i> Scenario:</strong> Cafe struggled with unorganized sales records, hindering effective decision-making on product and marketing.</p>
-                    <p><strong><i class="fas fa-lightbulb"></i> Solution:</strong> Cleaned <strong>10,000 rows</strong> of MySQL sales data, standardizing records and building calculated fields for insights. Delivered an interactive Power BI dashboard with KPIs and filters.</p>
-                    <p><strong><i class="fas fa-chart-line"></i> Impact:</strong> Key trends discovered: sales peak Thursday–Monday, seasonal spikes in March/October, and coffee as the top bulk seller. Improved decision-making.</p>
-                    <p><strong><i class="fas fa-tools"></i> Stack:</strong> MySQL · Power BI</p>
-                    <p><strong><i class="fas fa-vial"></i> Tested On:</strong> Local MySQL + Power BI Desktop</p>
-                    <div class="project-tags">
-                        <span><i class="fas fa-tag"></i> Data Cleaning</span>
-                        <span><i class="fas fa-tag"></i> Data Visualization</span>
-                    </div>
-                    <a href="https://github.com/cyril-fernando/cafe-sales-sql-powerbi" target="_blank" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                    <h3 class="project-title">Cafe Sales Dashboard</h3>
+                    <p class="project-tech">MySQL · Power BI · Analytics</p>
+
+                    <ul class="project-bullets">
+                        <li><strong>Problem:</strong> No visibility into product performance or seasonal sales.</li>
+                        <li><strong>Solution:</strong> Cleaned 10k rows of SQL data & built an interactive BI Dashboard.
+                        </li>
+                        <li><strong>Result:</strong> Identified top sellers & peak hours, driving smarter inventory.
+                        </li>
+                    </ul>
+
+                    <a href="https://github.com/cyril-fernando/cafe-sales-sql-powerbi" class="project-link"
+                        target="_blank">View Code <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
-            <!-- EXISTING: Automated Drip Irrigation System -->
-            <div class="project-card" id="automated-drip-irrigation-system">
+            <!-- Project 4 -->
+            <div class="project-card">
+                <div class="project-img"
+                    style="background: #2a2a2a; display:flex; align-items:center; justify-content:center;">
+                    <i class="fas fa-water" style="font-size:3rem; color:#4a4a4a;"></i>
+                </div>
                 <div class="project-content">
-                    <h3 class="wavy-hover"><span>A</span><span>u</span><span>t</span><span>o</span><span>m</span><span>a</span><span>t</span><span>e</span><span>d</span> <span>D</span><span>r</span><span>i</span><span>p</span> <span>I</span><span>r</span><span>r</span><span>i</span><span>g</span><span>a</span><span>t</span><span>i</span><span>o</span><span>n</span> <span>S</span><span>y</span><span>s</span><span>t</span><span>e</span><span>m</span></h3>
-                    <p><strong><i class="fas fa-question-circle"></i> Scenario:</strong> Vineyards faced significant water waste and high labor costs with traditional irrigation, requiring an automated, off-grid solution.</p>
-                    <p><strong><i class="fas fa-lightbulb"></i> Solution:</strong> Designed and built an off-grid drip irrigation system. Programmed an ESP32 to monitor soil moisture and trigger pump activation, integrating a solar panel and battery for autonomous operation.</p>
-                    <p><strong><i class="fas fa-chart-line"></i> Impact:</strong> Achieved a significant <strong>46.42% reduction in water usage</strong> during a six-week field test, while maintaining equal grape yield. This led to substantial cost savings in water resources and labor, demonstrating the potential for sustainable agricultural practices.</p>
-                    <p><strong><i class="fas fa-tools"></i> Stack:</strong> ESP32</p>
-                    <p><strong><i class="fas fa-vial"></i> Tested On:</strong> Field Test</p>
-                    <div class="project-tags">
-                        <span><i class="fas fa-tag"></i> Automation</span>
-                        <span><i class="fas fa-tag"></i> IoT</span>
-                        <span><i class="fas fa-tag"></i> Embedded Systems</span>
-                    </div>
+                    <h3 class="project-title">Smart Irrigation System</h3>
+                    <p class="project-tech">IoT · ESP32 · Embedded C++</p>
+
+                    <ul class="project-bullets">
+                        <li><strong>Problem:</strong> Traditional irrigation wasted water and required manual labor.
+                        </li>
+                        <li><strong>Solution:</strong> Developed an off-grid, solar-powered soil moisture sensing bot.
+                        </li>
+                        <li><strong>Result:</strong> 46% water reduction with maintained crop yields in field tests.
+                        </li>
+                    </ul>
                 </div>
             </div>
+        </div>
 
         </div>
+    </section>
+
+    <!-- Fun & Useful Projects (Playground) -->
+    <section id="fun-projects" class="fun-section">
+        <div class="container">
+            <h2 class="section-title">Playground & Tools</h2>
+            <div class="fun-grid">
+
+                <!-- Indeed Date Scout -->
+                <div class="fun-card">
+                    <h3 class="project-title">Indeed Date Scout</h3>
+                    <p class="project-tech">Browser Extension · TypeScript</p>
+                    <p class="project-desc">
+                        A power-user extension for Indeed that reveals hidden job posting dates, applicant counts, and
+                        salary ranges.
+                        Includes a "Healing Loop" for single-page app persistence and local storage syncing.
+                    </p>
+
+                    <!-- HTML5 Video Placeholder -->
+                    <div class="video-container"
+                        style="position: relative; width: 100%; padding-top: 56.25%; background: #000; border-radius: 8px; margin: 15px 0; border: 1px solid var(--glass-border); overflow: hidden;">
+                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" controls>
+                            <source src="img/indeed-date-reveal-demo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <!-- Fallback overlay text if no video source yet -->
+
+                    </div>
+
+                    <div class="coming-soon-badge"
+                        style="display: inline-flex; align-items: center; color: var(--text-secondary); margin-top: 15px; border: 1px solid var(--glass-border); padding: 8px 16px; border-radius: 20px; background: rgba(255,255,255,0.02);">
+                        <i class="fas fa-rocket" style="margin-right: 8px; color: var(--accent-color);"></i>
+                        Coming soon to Chrome & Firefox
+                    </div>
+                </div>
+
+                <!-- Placeholder for future fun stuff -->
+                <div class="fun-card"
+                    style="opacity: 0.6; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <i class="fas fa-gamepad fun-icon" style="color: var(--text-secondary);"></i>
+                    <h3 class="project-title" style="color: var(--text-secondary);">More Coming Soon</h3>
+                    <p class="project-desc">Building more cool stuff...</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Footer -->
+    <footer id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="social-links">
+                <a href="https://github.com/cyril-fernando" class="social-btn" target="_blank"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/cyfernando" class="social-btn" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="mailto:contact@cyrilfernando.com" class="social-btn"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p style="color: var(--text-secondary);">&copy; 2026 Cyril Fernando. Built with <i class="fas fa-heart"
+                    style="color: var(--accent-color);"></i> & Code.</p>
+        </div>
+    </footer>
+
+    <!-- Visits Counter -->
+    <div class="visits-counter">
+        <span class="visits-label">My Portfolio Visits</span>
+        <span class="visits-count"><i class="fas fa-eye"></i> 1,204</span>
+        <!-- Static example, replace with real counter script if needed -->
     </div>
-</section>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
