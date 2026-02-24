@@ -54,4 +54,45 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // tsParticles Branding Configuration
+    const isLightMode = document.body.classList.contains('light-mode');
+
+    tsParticles.load({
+        id: "tsparticles",
+        options: {
+            fpsLimit: 120,
+            interactivity: {
+                detect_on: "window",
+                events: {
+                    onHover: {
+                        enable: true,
+                        mode: "grab",
+                    },
+                },
+                modes: {
+                    grab: {
+                        distance: 200,
+                        links: { opacity: 0.5, color: "#38bdf8" }
+                    },
+                },
+            },
+            particles: {
+                color: { value: ["#38bdf8", "#0d9488", "#e11d48"] },
+                links: {
+                    color: "#38bdf8",
+                    distance: 150,
+                    enable: true,
+                    opacity: 0.2,
+                    width: 1,
+                },
+                move: { enable: true, speed: 1.2, direction: "none", outModes: "out" },
+                number: { density: { enable: true, area: 800 }, value: 80 },
+                opacity: { value: 0.4 },
+                shape: { type: "circle" },
+                size: { value: { min: 1, max: 3 } },
+            },
+            detectRetina: true,
+        },
+    });
+
 });

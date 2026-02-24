@@ -14,6 +14,9 @@
 
 <body>
 
+    <!-- Background Particles -->
+    <div id="tsparticles"></div>
+
     <!-- Sticky Navigation -->
     <nav class="navbar">
         <a href="#" class="nav-brand">Cyril<span>.</span></a>
@@ -64,6 +67,11 @@
                     <span class="skill-tag">dbt</span>
                     <span class="skill-tag">Dagster</span>
                     <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Prompt Engineering</span>
+                    <span class="skill-tag">Claude</span>
+                    <span class="skill-tag">Cursor</span>
+                    <span class="skill-tag">Gemini</span>
+                    <span class="skill-tag">Antigravity</span>
                 </div>
             </div>
             <!-- Potentially add a visual element or code snippet graphic here on the right, 
@@ -81,25 +89,31 @@
 
             <!-- Project 1 -->
             <div class="project-card">
-                <div class="img-container" style="padding: 20px; background: rgba(0,0,0,0.2);">
-                    <img src="img/fraud-pipeline-architecture.png" alt="Pipeline Architecture"
-                        class="project-img contain-img">
+                <div class="img-container"
+                    style="background: #111827; display: flex; align-items: center; justify-content: center; height: 200px; border-radius: 8px 8px 0 0;">
+                    <i class="fas fa-chart-line" style="font-size: 5rem; color: #0d9488;"></i>
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Credit Card Data Pipeline</h3>
-                    <p class="project-tech">Python · dbt · Dagster · BigQuery</p>
+                    <h3 class="project-title">Agri-Price Intelligence Platform</h3>
+                    <p class="project-tech">Python · DuckDB · AWS S3 · dbt · Streamlit · GH Actions · dlt</p>
 
                     <ul class="project-bullets">
-                        <li><strong>Problem:</strong> Analysts relied on raw, messy CSV exports for fraud detection.
-                        </li>
-                        <li><strong>Solution:</strong> Built a Dockerised Dagster & dbt pipeline to automate ingestion.
-                        </li>
-                        <li><strong>Result:</strong> 284k+ transactions processed w/ 100% data quality & automated
-                            testing.</li>
+                        <li><strong>Problem:</strong> Lack of real-time visibility into national agricultural price
+                            disparities.</li>
+                        <li><strong>Solution:</strong> Automated Medallion Data Lake on S3 with statistical anomaly
+                            detection.</li>
+                        <li><strong>Result:</strong> Real-time "Visual Intelligence" identifying price gouging via
+                            Z-Score clustering.</li>
                     </ul>
 
-                    <a href="https://github.com/cyril-fernando/credit-card-transaction-data-pipeline"
-                        class="project-link" target="_blank">View Code <i class="fas fa-arrow-right"></i></a>
+                    <div class="project-links" style="margin-top: 20px; display: flex; gap: 15px;">
+                        <a href="https://github.com/crylz-z/Agri-Price-Intelligence-Platform" class="project-link"
+                            target="_blank">View Code <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="project-link"
+                            style="opacity: 0.6; cursor: not-allowed; font-size: 0.9rem; color: var(--text-secondary);">
+                            <i class="fas fa-external-link-alt"></i> Live Demo (Coming Soon)
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -194,10 +208,11 @@
 
                     </div>
 
-                    <div class="coming-soon-badge"
-                        style="display: inline-flex; align-items: center; color: var(--text-secondary); margin-top: 15px; border: 1px solid var(--glass-border); padding: 8px 16px; border-radius: 20px; background: rgba(255,255,255,0.02);">
-                        <i class="fas fa-rocket" style="margin-right: 8px; color: var(--accent-color);"></i>
-                        Coming soon to Chrome & Firefox
+                    <div style="margin-top: 20px;">
+                        <a href="https://addons.mozilla.org/en-US/firefox/addon/indeed-date-scout/"
+                            class="btn btn-outline" target="_blank" style="padding: 10px 20px; font-size: 0.9rem;">
+                            <i class="fab fa-firefox-browser" style="margin-right: 8px;"></i> Get Extension
+                        </a>
                     </div>
                 </div>
 
@@ -231,6 +246,7 @@
 
 
 
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.3/tsparticles.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 
