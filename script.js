@@ -95,4 +95,30 @@ document.addEventListener('DOMContentLoaded', function () {
         },
     });
 
+    // --- Image Lightbox ---
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    document.body.appendChild(modal);
+
+    const modalImg = document.createElement('img');
+    modalImg.className = 'modal-content';
+    modal.appendChild(modalImg);
+
+    document.querySelectorAll('.project-img').forEach(img => {
+        img.addEventListener('click', () => {
+            modal.classList.add('active');
+            modalImg.src = img.src;
+        });
+    });
+
+    modal.addEventListener('click', () => {
+        modal.classList.remove('active');
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            modal.classList.remove('active');
+        }
+    });
+
 });
