@@ -4,247 +4,522 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyril Fernando | Data Engineer</title>
+    <title>Cyril Fernando | Business Intelligence Analyst</title>
     <meta name="description"
-        content="Portfolio of Cyril Fernando, a Data Engineer specializing in scalable pipelines, BigQuery, dbt, and analytics.">
-    <meta name="keywords" content="Data Engineer, ETL, BigQuery, dbt, Python, SQL, Portfolio, Cyril Fernando">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=2">
+        content="Portfolio of Cyril Fernando, a Business Intelligence Analyst specializing in SQL analytics, data pipelines, Power BI, Python, and AI-assisted workflows.">
+    <meta name="keywords" content="Business Intelligence Analyst, BI Developer, SQL, Python, Power BI, DAX, Cyril Fernando">
+    
+    <!-- Minimal Design Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css?v=6">
 </head>
 
 <body>
 
-    <!-- Background Particles -->
-    <div id="tsparticles"></div>
-
-    <!-- Sticky Navigation -->
-    <nav class="navbar">
-        <a href="#" class="nav-brand">Cyril<span>.</span></a>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#projects">Work</a>
-            <a href="#fun-projects">Playground</a>
-            <a href="#contact">Contact</a>
-            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
-                <i class="fas fa-sun"></i>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="container hero-content fade-in-up">
-            <div class="profile-img-container">
-                <img src="img/personal_pic.jpg" alt="Cyril Fernando" class="profile-img">
-            </div>
-            <h1>Cyril Fernando</h1>
-            <p class="role">Data Engineer & Analytics Specialist</p>
-            <p class="tagline">Designing scalable, cloud-native data pipelines that transform raw chaos into
-                decision-making power.</p>
-
-            <div class="hero-btns">
-                <a href="#projects" class="btn btn-primary">View Work</a>
-                <a href="#contact" class="btn btn-outline">Contact Me</a>
-            </div>
+    <!-- Mobile Top Navigation Header -->
+    <header class="mobile-header">
+        <a href="#about" class="mobile-brand">cyril fernando</a>
+        <div class="mobile-header-actions">
+            <button class="mobile-arcade-btn" id="btn-mobile-arcade" aria-label="Launch Red Ball Game">🎮 ARCADE</button>
+            <span class="mono-micro">bi analyst</span>
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="container">
-        <div class="about-grid">
-            <div class="about-text">
-                <h2 class="section-title">About Me</h2>
-                <p>I'm a self-starter who doesn't wait for a roadmap. Pivoting from Electrical to Data Engineering, I've
-                    built my skills by diving deep-learning not just how to use tools, but how to master them. When I
-                    learn something, I learn it completely, ensuring my work is robust, not just functional.</p>
-                <p>I'm just starting out, which means I bring a hunger to prove myself and a fresh perspective to every
-                    challenge.</p>
-
-                <div class="skills-tags">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">BigQuery</span>
-                    <span class="skill-tag">dbt</span>
-                    <span class="skill-tag">Dagster</span>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">Prompt Engineering</span>
-                    <span class="skill-tag">Claude</span>
-                    <span class="skill-tag">Cursor</span>
-                    <span class="skill-tag">Gemini</span>
-                    <span class="skill-tag">Antigravity</span>
-                </div>
-            </div>
-            <!-- Potentially add a visual element or code snippet graphic here on the right, 
-                 but for now keeping it balanced text/white space -->
-            <div style="text-align:center; opacity: 0.5;">
-                <i class="fas fa-network-wired" style="font-size: 10rem; color: var(--accent-glaw);"></i>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Projects (Work) -->
-    <section id="projects" class="container">
-        <h2 class="section-title">Featured Work</h2>
-        <div class="projects-grid">
-
-            <!-- Project 1 -->
-            <div class="project-card">
-                <img src="img/agri-price-architecture-v2.png" alt="Agri-Price Intelligence Platform Architecture"
-                    class="project-img">
-                <div class="project-content">
-                    <h3 class="project-title">Agri-Price Intelligence Platform</h3>
-                    <p class="project-tech">Python · DuckDB · AWS S3 · dbt · Streamlit · GH Actions · dlt</p>
-
-                    <ul class="project-bullets">
-                        <li><strong>Problem:</strong> Lack of real-time visibility into national agricultural price
-                            disparities.</li>
-                        <li><strong>Solution:</strong> Automated Medallion Data Lake on S3 with statistical anomaly
-                            detection.</li>
-                        <li><strong>Result:</strong> Real-time "Visual Intelligence" identifying price gouging via
-                            Z-Score clustering.</li>
-                    </ul>
-
-                    <div class="project-links" style="margin-top: 20px; display: flex; gap: 15px;">
-                        <a href="https://github.com/crylz-z/Agri-Price-Intelligence-Platform" class="project-link"
-                            target="_blank">View Code <i class="fas fa-arrow-right"></i></a>
-                        <a href="https://bantay-presyo-data.streamlit.app/" class="project-link" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
+    <div class="layout-wrapper">
+        <!-- Desktop Fixed Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <!-- Hybrid Bi-tonal Profile Picture Frame -->
+                <div class="avatar-frame">
+                    <div class="avatar-inner">
+                        <img src="img/personal_pic_hybrid.png" alt="Cyril Fernando" class="avatar-img">
                     </div>
                 </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="project-card">
-                <img src="img/sql-warehouse-architecture.png" alt="SQL Data Warehouse Architecture"
-                    class="project-img project-img-contain">
-                <div class="project-content">
-                    <h3 class="project-title">SQL Data Warehouse</h3>
-                    <p class="project-tech">SQL Server · ETL · Star Schema</p>
-
-                    <ul class="project-bullets">
-                        <li><strong>Problem:</strong> Disparate raw sources made reporting slow and unreliable.</li>
-                        <li><strong>Solution:</strong> Engineered a Medallion Architecture ETL pipeline in SQL Server.
-                        </li>
-                        <li><strong>Result:</strong> Created a trusted, high-performance Star Schema for analytics.</li>
-                    </ul>
-
-                    <a href="https://github.com/cyril-fernando/sql-data-warehouse-project" class="project-link"
-                        target="_blank">View Code <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="project-card">
-                <img src="img/cafe_sales_2023_page-0001.jpg" alt="Dashboard" class="project-img">
-                <div class="project-content">
-                    <h3 class="project-title">Cafe Sales Dashboard</h3>
-                    <p class="project-tech">MySQL · Power BI · Analytics</p>
-
-                    <ul class="project-bullets">
-                        <li><strong>Problem:</strong> No visibility into product performance or seasonal sales.</li>
-                        <li><strong>Solution:</strong> Cleaned 10k rows of SQL data & built an interactive BI Dashboard.
-                        </li>
-                        <li><strong>Result:</strong> Identified top sellers & peak hours, driving smarter inventory.
-                        </li>
-                    </ul>
-
-                    <a href="https://github.com/cyril-fernando/cafe-sales-sql-powerbi" class="project-link"
-                        target="_blank">View Code <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <!-- Project 4 -->
-            <div class="project-card">
-                <div class="project-img"
-                    style="background: #2a2a2a; display:flex; align-items:center; justify-content:center;">
-                    <i class="fas fa-water" style="font-size:3rem; color:#4a4a4a;"></i>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Smart Irrigation System</h3>
-                    <p class="project-tech">IoT · ESP32 · Embedded C++</p>
-
-                    <ul class="project-bullets">
-                        <li><strong>Problem:</strong> Traditional irrigation wasted water and required manual labor.
-                        </li>
-                        <li><strong>Solution:</strong> Developed an off-grid, solar-powered soil moisture sensing bot.
-                        </li>
-                        <li><strong>Result:</strong> 46% water reduction with maintained crop yields in field tests.
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        </div>
-    </section>
-
-    <!-- Fun & Useful Projects (Playground) -->
-    <section id="fun-projects" class="fun-section">
-        <div class="container">
-            <h2 class="section-title">Playground & Tools</h2>
-            <div class="fun-grid">
-
-                <!-- Indeed Date Scout -->
-                <div class="fun-card">
-                    <h3 class="project-title">Indeed Date Scout</h3>
-                    <p class="project-tech">Browser Extension · TypeScript</p>
-                    <p class="project-desc">
-                        A power-user extension for Indeed that reveals hidden job posting dates, applicant counts, and
-                        salary ranges.
-                        Includes a "Healing Loop" for single-page app persistence and local storage syncing.
-                    </p>
-
-                    <!-- HTML5 Video Placeholder -->
-                    <div class="video-container"
-                        style="position: relative; width: 100%; padding-top: 56.25%; background: #000; border-radius: 8px; margin: 15px 0; border: 1px solid var(--glass-border); overflow: hidden;">
-                        <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" controls>
-                            <source src="img/indeed-date-reveal-demo.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <!-- Fallback overlay text if no video source yet -->
-
-                    </div>
-
-                    <div style="margin-top: 20px;">
-                        <a href="https://addons.mozilla.org/en-US/firefox/addon/indeed-date-scout/"
-                            class="btn btn-outline" target="_blank" style="padding: 10px 20px; font-size: 0.9rem;">
-                            <i class="fab fa-firefox-browser" style="margin-right: 8px;"></i> Get Extension
-                        </a>
+                <div class="brand-info">
+                    <h1>Cyril Fernando</h1>
+                    <p>business intelligence analyst</p>
+                    <div class="status-pill">
+                        <span class="status-dot"></span>
+                        <span class="mono-micro">open to opportunities</span>
                     </div>
                 </div>
 
-                <!-- Placeholder for future fun stuff -->
-                <div class="fun-card"
-                    style="opacity: 0.6; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
-                    <i class="fas fa-gamepad fun-icon" style="color: var(--text-secondary);"></i>
-                    <h3 class="project-title" style="color: var(--text-secondary);">More Coming Soon</h3>
-                    <p class="project-desc">Building more cool stuff...</p>
+                <nav class="nav-menu" aria-label="Main Navigation">
+                    <a href="#about" class="nav-item active"><span class="nav-indicator">→</span> 01 about</a>
+                    <a href="#projects" class="nav-item"><span class="nav-indicator">→</span> 02 projects</a>
+                    <a href="#playground" class="nav-item"><span class="nav-indicator">→</span> 03 playground</a>
+                    <a href="#contact" class="nav-item"><span class="nav-indicator">→</span> 04 contact</a>
+                </nav>
+
+                <!-- Sidebar Interactive Arcade Widget -->
+                <div class="sidebar-arcade-widget" id="sidebar-arcade-trigger">
+                    <div class="arcade-widget-top">
+                        <div class="arcade-widget-title">
+                            <span class="game-ball-icon"></span>
+                            <span class="mono-micro" style="color: var(--ink); font-weight: 600;">RED BALL 2D</span>
+                        </div>
+                        <span class="status-badge-live">PLAYABLE</span>
+                    </div>
+                    <p class="arcade-widget-desc">5-stage platform puzzle</p>
+                    <button class="arcade-expand-trigger-btn" id="btn-open-arcade-modal" aria-label="Expand Red Ball Game">
+                        <span>LAUNCH ARCADE</span>
+                        <span>↗</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-socials">
+                    <a href="https://github.com/cyril-fernando" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/cyfernando" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="mailto:contact@cyrilfernando.com" class="icon-link" aria-label="Email">
+                        <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l9.518 7.714 9.518-7.714v11.817h-19.036z"/></svg>
+                    </a>
+                </div>
+                <div class="mono-micro">© 2026 CYRIL FERNANDO</div>
+            </div>
+        </aside>
+
+        <!-- Main Column -->
+        <main class="main-content">
+            
+            <!-- 01 — About -->
+            <section id="about" class="section">
+                <div class="section-label">01 about</div>
+                
+                <h2 class="hero-statement">
+                    Transforming operational pawnshop and retail lending data into <strong>reliable pipelines and decision-ready intelligence</strong>.
+                </h2>
+
+                <p class="bio-paragraph">
+                    I translate high-volume pawnshop and loan transactions into actionable business intelligence. Grounded in an <strong>Electrical Engineering</strong> foundation, I treat analytics infrastructure with engineering discipline—eliminating manual reporting bottlenecks, designing robust database queries, and empowering management with clear <strong>Power BI</strong> dashboards.
+                </p>
+
+                <p class="bio-paragraph">
+                    My core focus centers on building reliable <strong>SQL</strong> and <strong>Python</strong> extraction pipelines, structuring maintainable dimensional data models, and accelerating day-to-day development with modern AI workflows to deliver fast, verified business impact.
+                </p>
+
+                <!-- Professional Focus & Architecture Snapshot -->
+                <div class="profile-snapshot-card">
+                    <div class="snapshot-header">
+                        <span class="mono-micro">PROFESSIONAL FOCUS & CORE PRACTICE</span>
+                        <span class="mono-micro" style="color: var(--emerald-600);">● ACTIVE</span>
+                    </div>
+                    <div class="snapshot-grid">
+                        <div class="snapshot-row">
+                            <span class="snapshot-key">DOMAIN FOCUS</span>
+                            <span class="snapshot-val">Retail Lending & Pawnshop Operations</span>
+                        </div>
+                        <div class="snapshot-row">
+                            <span class="snapshot-key">PRIMARY DELIVERABLES</span>
+                            <span class="snapshot-val">Automated ETL Pipelines · Star Schema Models · Executive Dashboards</span>
+                        </div>
+                        <div class="snapshot-row">
+                            <span class="snapshot-key">ENGINEERING PRACTICES</span>
+                            <span class="snapshot-val">Version-Controlled Scripts · Automated Batch Jobs · AI Workflow Acceleration</span>
+                        </div>
+                        <div class="snapshot-row">
+                            <span class="snapshot-key">ACADEMIC FOUNDATION</span>
+                            <span class="snapshot-val">B.S. Electrical Engineering (2025)</span>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- Categorized Core Tools Matrix -->
+                <div class="tools-matrix">
+                    <div class="tool-group">
+                        <span class="tool-group-label">Databases</span>
+                        <div class="tool-tags">
+                            <span class="tool-tag">MySQL</span>
+                            <span class="tool-tag">SQL Server</span>
+                            <span class="tool-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                    <div class="tool-group">
+                        <span class="tool-group-label">Analytics & BI</span>
+                        <div class="tool-tags">
+                            <span class="tool-tag">Power BI</span>
+                            <span class="tool-tag">Excel</span>
+                        </div>
+                    </div>
+                    <div class="tool-group">
+                        <span class="tool-group-label">Code & Version Control</span>
+                        <div class="tool-tags">
+                            <span class="tool-tag">Python</span>
+                            <span class="tool-tag">Git</span>
+                        </div>
+                    </div>
+                    <div class="tool-group">
+                        <span class="tool-group-label">AI Acceleration</span>
+                        <div class="tool-tags">
+                            <span class="tool-tag tool-tag-ai">Claude Code</span>
+                            <span class="tool-tag tool-tag-ai">Antigravity IDE</span>
+                            <span class="tool-tag tool-tag-ai">Gemini</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 02 — Projects -->
+            <section id="projects" class="section">
+                <div class="section-label">02 featured work</div>
+                
+                <div class="projects-stack">
+                    
+                    <!-- Project 1: Agri-Price -->
+                    <article class="card">
+                        <div class="card-media contain-media">
+                            <img src="img/agri-price-diagram.svg" alt="Agri-Price Medallion Architecture Diagram">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="mono-micro">ANALYTICS LAKEHOUSE</span>
+                                <span class="mono-micro">2026</span>
+                            </div>
+                            <h3 class="card-title">Agri-Price Intelligence Platform</h3>
+                            <p class="card-stack">Python · DuckDB · AWS S3 · Streamlit · GitHub Actions · dlt</p>
+                            
+                            <div class="spec-grid">
+                                <div class="spec-row">
+                                    <div class="spec-label">Problem</div>
+                                    <div class="spec-value">Lack of real-time visibility and transparency into nationwide agricultural market price disparities.</div>
+                                </div>
+                                <div class="spec-row">
+                                    <div class="spec-label">Solution</div>
+                                    <div class="spec-value">Engineered an automated Lakehouse on S3 with scheduled ingests and statistical anomaly detection.</div>
+                                </div>
+                                <div class="spec-row">
+                                    <div class="spec-label">Result</div>
+                                    <div class="spec-value">Surfaced market price anomalies and price gouging patterns via Z-Score clustering in an interactive app.</div>
+                                </div>
+                            </div>
+
+                            <div class="card-actions">
+                                <a href="https://github.com/crylz-z/Agri-Price-Intelligence-Platform" target="_blank" rel="noopener noreferrer" class="action-link">
+                                    View Source ↗
+                                </a>
+                                <a href="https://bantay-presyo-data.streamlit.app/" target="_blank" rel="noopener noreferrer" class="action-link">
+                                    Live Demo ↗
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2: SQL Data Warehouse -->
+                    <article class="card">
+                        <div class="card-media contain-media">
+                            <img src="img/sql-warehouse-diagram.svg" alt="SQL Data Warehouse Architecture Diagram">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="mono-micro">WAREHOUSE ARCHITECTURE</span>
+                                <span class="mono-micro">2025</span>
+                            </div>
+                            <h3 class="card-title">SQL Data Warehouse</h3>
+                            <p class="card-stack">SQL Server · ETL Pipeline · Star Schema · Data Modeling</p>
+                            
+                            <div class="spec-grid">
+                                <div class="spec-row">
+                                    <div class="spec-label">Problem</div>
+                                    <div class="spec-value">Disparate transactional sources created sluggish queries and inconsistent reporting metrics.</div>
+                                </div>
+                                <div class="spec-row">
+                                    <div class="spec-label">Solution</div>
+                                    <div class="spec-value">Engineered a multi-stage ETL pipeline with cleansed dimension and fact modeling.</div>
+                                </div>
+                                <div class="spec-row">
+                                    <div class="spec-label">Result</div>
+                                    <div class="spec-value">Delivered a trusted, high-performance Star Schema optimized for analytical reporting.</div>
+                                </div>
+                            </div>
+
+                            <div class="card-actions">
+                                <a href="https://github.com/cyril-fernando/sql-data-warehouse-project" target="_blank" rel="noopener noreferrer" class="action-link">
+                                    View Source ↗
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3: Cafe Sales Dashboard -->
+                    <article class="card">
+                        <div class="card-media contain-media">
+                            <img src="img/cafe_sales_2023_page-0001.jpg" alt="Cafe Sales Analytics Dashboard">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="mono-micro">BI & REPORTING</span>
+                                <span class="mono-micro">2025</span>
+                            </div>
+                            <h3 class="card-title">Cafe Sales Analytics Dashboard</h3>
+                            <p class="card-stack">MySQL · Power BI · Exploratory Data Analysis · DAX</p>
+                            
+                            <div class="spec-grid">
+                                <div class="spec-row">
+                                    <div class="spec-label">Problem</div>
+                                    <div class="spec-value">No granular visibility into product performance variations, inventory turnover, or peak customer traffic hours.</div>
+                                </div>
+                                <div class="spec-row">
+                                    <div class="spec-label">Solution</div>
+                                    <div class="spec-value">Cleansed and modeled 10,000+ raw transactional records with parameterized DAX measures and interactive dashboards.</div>
+                                </div>
+                                <div class="spec-row">
+                                    <div class="spec-label">Result</div>
+                                    <div class="spec-value">Identified top revenue drivers and peak operational windows to guide inventory replenishment strategies.</div>
+                                </div>
+                            </div>
+
+                            <div class="card-actions">
+                                <a href="https://github.com/cyril-fernando/cafe-sales-sql-powerbi" target="_blank" rel="noopener noreferrer" class="action-link">
+                                    View Source ↗
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 4: Smart Irrigation System (Undergraduate Thesis) -->
+                    <article class="card">
+                        <div class="card-media contain-media">
+                            <img src="img/smart-irrigation-diagram.svg" alt="Smart Irrigation Automation Edge System Architecture Diagram">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="mono-micro">UNDERGRADUATE THESIS</span>
+                                <span class="mono-micro">EE · 2025</span>
+                            </div>
+                            <h3 class="card-title">Smart Irrigation Automation</h3>
+                            <p class="card-stack">ESP32 · Embedded C++ · Solar Microgrid · Soil Moisture Telemetry</p>
+                            
+                            <div class="spec-grid">
+                                <div class="spec-row">
+                                    <div class="spec-label">Problem</div>
+                                    <div class="spec-value">Conventional timer-based irrigation led to water waste and required continuous manual monitoring.</div>
+                                </div>
+                                <div class="spec-row">
+                                    <div class="spec-label">Solution</div>
+                                    <div class="spec-value">Engineered an autonomous, solar-powered edge device running dynamic thresholding control loops for my Electrical Engineering thesis.</div>
+                                </div>
+                                <div class="spec-row">
+                                    <div class="spec-label">Result</div>
+                                    <div class="spec-value">Achieved 46% water reduction in field tests while preserving optimal baseline soil hydration levels.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- 03 — Playground & Tools -->
+            <section id="playground" class="section">
+                <div class="section-label">03 playground & tools</div>
+                
+                <div class="projects-stack">
+                    
+                    <!-- Tool 1: Indeed Date Scout -->
+                    <article class="card">
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="mono-micro">BROWSER EXTENSION</span>
+                                <span class="mono-micro">PRODUCTION · MAR 2026</span>
+                            </div>
+                            <h3 class="card-title">Indeed Date Scout</h3>
+                            <p class="card-stack">TypeScript · WebExtensions API · DOM MutationObserver</p>
+                            
+                            <p class="bio-paragraph" style="margin-top: 0.75rem;">
+                                A power-user browser extension that cuts through job-board opacity by uncovering <strong>exact job posting dates</strong>, <strong>real-time applicant volume</strong>, and normalized salary benchmarks directly on Indeed search cards.
+                            </p>
+
+                            <!-- Stat Row with Electric Emerald Highlight -->
+                            <div class="stat-badge-row">
+                                <div class="stat-badge stat-badge-emerald">
+                                    <span class="stat-pulse-dot"></span>
+                                    <span class="stat-num">200+</span>
+                                    <span class="stat-desc">Avg Daily Active Users ★</span>
+                                </div>
+                                <div class="stat-badge">
+                                    <span class="stat-num">300+</span>
+                                    <span class="stat-desc">Downloads</span>
+                                </div>
+                                <div class="stat-badge">
+                                    <span class="stat-num">v1.2</span>
+                                    <span class="stat-desc">Firefox Add-on</span>
+                                </div>
+                            </div>
+
+                            <div class="video-wrapper">
+                                <video controls preload="metadata">
+                                    <source src="img/indeed-date-reveal-demo.mp4" type="video/mp4">
+                                    Your browser does not support HTML5 video.
+                                </video>
+                            </div>
+
+                            <div class="card-actions">
+                                <a href="https://addons.mozilla.org/en-US/firefox/addon/indeed-date-scout/" target="_blank" rel="noopener noreferrer" class="action-link">
+                                    Firefox Add-on ↗
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Interactive Arcade Game: Red Ball Physics Puzzle -->
+                    <article class="card game-card" id="arcade-game-container">
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="mono-micro">INTERACTIVE PLAYGROUND</span>
+                                <span class="mono-micro">CANVAS 2D PHYSICS</span>
+                            </div>
+                            <div class="game-header-row">
+                                <div>
+                                    <h3 class="card-title" style="display: flex; align-items: center; gap: 8px;">
+                                        <span class="game-ball-icon"></span> Red Ball: Analytics Run
+                                    </h3>
+                                    <p class="card-stack">Pure Canvas 2D · Rigid-Body Physics Engine · Web Audio API</p>
+                                </div>
+                                <div class="game-sound-toggle">
+                                    <button id="btn-card-expand-arcade" class="game-btn-icon highlight-btn" aria-label="Expand Game" title="Expand Game">
+                                        <span>EXPAND ↗</span>
+                                    </button>
+                                    <button id="game-sound-btn" class="game-btn-icon" aria-label="Toggle Sound" title="Toggle Sound">
+                                        <span id="sound-icon-label">🔊 SFX ON</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <p class="bio-paragraph" style="margin-top: 0.5rem; font-size: 13px;">
+                                Navigate the data sphere across 5 progressive platform-puzzle stages. Roll across momentum tracks, trigger pressure switches to unlock security gates, avoid spike traps, and collect stars to deploy to production.
+                            </p>
+
+                            <!-- Level Selector Tabs -->
+                            <div class="game-level-tabs" role="tablist" aria-label="Stage Selector">
+                                <button class="level-tab active" data-level="0">01 Ingest</button>
+                                <button class="level-tab" data-level="1">02 Pipeline</button>
+                                <button class="level-tab" data-level="2">03 Gateway</button>
+                                <button class="level-tab" data-level="3">04 Anomaly</button>
+                                <button class="level-tab" data-level="4">05 Deploy</button>
+                            </div>
+
+                            <!-- Game HUD & Canvas Viewport -->
+                            <div class="game-viewport-wrap">
+                                <div class="game-hud">
+                                    <div class="hud-item">
+                                        <span class="hud-label">STAGE</span>
+                                        <span id="hud-stage-name" class="hud-val">01: Ingest</span>
+                                    </div>
+                                    <div class="hud-item">
+                                        <span class="hud-label">STARS</span>
+                                        <span id="hud-stars" class="hud-val">★ 0 / 3</span>
+                                    </div>
+                                    <div class="hud-item">
+                                        <span class="hud-label">STATUS</span>
+                                        <span id="hud-status" class="hud-val" style="color: var(--emerald-600);">READY</span>
+                                    </div>
+                                    <button id="game-reset-btn" class="hud-btn" title="Restart Stage">↺ Restart</button>
+                                </div>
+
+                                <canvas id="game-canvas" width="600" height="320" tabindex="0" aria-label="Red Ball Game Canvas"></canvas>
+
+                                <!-- Mobile Touch Controls Overlay -->
+                                <div class="mobile-touch-controls" id="touch-controls">
+                                    <div class="dpad-left-right">
+                                        <button class="touch-btn" id="touch-left" aria-label="Move Left">◀</button>
+                                        <button class="touch-btn" id="touch-right" aria-label="Move Right">▶</button>
+                                    </div>
+                                    <button class="touch-btn touch-btn-jump" id="touch-jump" aria-label="Jump">▲ JUMP</button>
+                                </div>
+                            </div>
+
+                            <div class="game-footer-info">
+                                <div class="controls-hint">
+                                    <span class="kbd-key">A</span><span class="kbd-key">D</span> or <span class="kbd-key">←</span><span class="kbd-key">→</span> to Roll
+                                    &nbsp;·&nbsp;
+                                    <span class="kbd-key">W</span> / <span class="kbd-key">SPACE</span> / <span class="kbd-key">↑</span> to Jump
+                                </div>
+                                <span class="mono-micro" id="game-fps-badge">60 FPS ENGINE</span>
+                            </div>
+
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- 04 — Contact -->
+            <section id="contact" class="section">
+                <div class="section-label">04 get in touch</div>
+                
+                <h2 class="pixel-title" style="font-size: 1.4rem; margin-bottom: 0.75rem;">
+                    Let's discuss data pipelines, BI systems, and analytics.
+                </h2>
+                <p class="bio-paragraph">
+                    Always interested in connecting with fellow data practitioners, discussing analytics engineering challenges, and exploring new opportunities.
+                </p>
+
+                <div class="contact-grid">
+                    <a href="mailto:contact@cyrilfernando.com" class="contact-card">
+                        <span class="contact-card-title">Direct Email <span>↗</span></span>
+                        <span class="contact-card-desc">contact@cyrilfernando.com</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/cyfernando" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <span class="contact-card-title">LinkedIn <span>↗</span></span>
+                        <span class="contact-card-desc">/in/cyfernando</span>
+                    </a>
+                    <a href="https://github.com/cyril-fernando" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <span class="contact-card-title">GitHub <span>↗</span></span>
+                        <span class="contact-card-desc">@cyril-fernando</span>
+                    </a>
+                </div>
+
+                <div class="colophon">
+                    <div class="visitor-counter">
+                        <span class="mono-micro">PAGE HITS:</span>
+                        <span id="visitor-count" class="count">...</span>
+                    </div>
+                    <span>Zero bloat · Vanilla CSS & JS</span>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="modal" role="dialog" aria-modal="true" aria-label="Image Preview">
+        <img id="lightbox-img" class="modal-content" src="" alt="Enlarged Preview">
+    </div>
+
+    <!-- Expanded Arcade Theater Modal -->
+    <div id="arcade-modal" class="modal arcade-modal-theater" role="dialog" aria-modal="true" aria-label="Red Ball Arcade Theater">
+        <div class="arcade-modal-inner">
+            <div class="arcade-modal-header">
+                <div class="arcade-modal-title">
+                    <span class="game-ball-icon"></span>
+                    <span class="pixel-title" style="font-size: 1.15rem;">Red Ball: Analytics Run</span>
+                    <span class="mono-micro" style="margin-left: 8px;">2D Physics</span>
+                </div>
+                <div class="arcade-modal-actions">
+                    <button id="modal-sound-btn" class="game-btn-icon" aria-label="Toggle Sound">🔊 SFX ON</button>
+                    <button id="modal-close-btn" class="game-btn-icon close-btn" aria-label="Close Arcade">✕ ESC</button>
+                </div>
+            </div>
+            <div id="arcade-modal-canvas-host">
+                <!-- The game canvas viewport dynamically moves here when expanded -->
+            </div>
+            <div class="arcade-modal-footer">
+                <div class="controls-hint">
+                    <span class="kbd-key">A</span><span class="kbd-key">D</span> or <span class="kbd-key">←</span><span class="kbd-key">→</span> to Roll &nbsp;·&nbsp; <span class="kbd-key">W</span> / <span class="kbd-key">SPACE</span> / <span class="kbd-key">↑</span> to Jump
+                </div>
+                <button id="modal-reset-btn" class="hud-btn">↺ Restart Stage</button>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Contact Footer -->
-    <footer id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="social-links">
-                <a href="https://github.com/cyril-fernando" class="social-btn" target="_blank"><i
-                        class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/cyfernando" class="social-btn" target="_blank"><i
-                        class="fab fa-linkedin"></i></a>
-                <a href="mailto:contact@cyrilfernando.com" class="social-btn"><i class="fas fa-envelope"></i></a>
-            </div>
-            <p style="color: var(--text-secondary);">&copy; 2026 Cyril Fernando. Built with <i class="fas fa-heart"
-                    style="color: var(--accent-color);"></i> & Code.</p>
-        </div>
-    </footer>
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.3/tsparticles.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 
