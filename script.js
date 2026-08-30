@@ -98,26 +98,84 @@
             });
     }
 
-    // 5. Lightbox Modal
+    // 5. Lightbox Modal (Images & Video Demos)
     const modal = document.getElementById('lightbox-modal');
     const modalImg = document.getElementById('lightbox-img');
+    const modalVideo = document.getElementById('lightbox-video');
+    const modalCloseBtn = document.getElementById('lightbox-close-btn');
 
-    if (modal && modalImg) {
+    if (modal) {
+        const closeModal = () => {
+            modal.classList.remove('active');
+            if (modalVideo) {
+                modalVideo.pause();
+                modalVideo.removeAttribute('src');
+                modalVideo.load();
+                modalVideo.style.display = 'none';
+            }
+            if (modalImg) {
+                modalImg.removeAttribute('src');
+                modalImg.style.display = 'none';
+            }
+            document.body.style.overflow = '';
+        };
+
+        // Images preview
         document.querySelectorAll('.card-media img').forEach(img => {
             img.addEventListener('click', () => {
-                modalImg.src = img.src;
-                modalImg.alt = img.alt || 'Project Preview';
+                if (modalVideo) {
+                    modalVideo.pause();
+                    modalVideo.removeAttribute('src');
+                    modalVideo.load();
+                    modalVideo.style.display = 'none';
+                }
+                if (modalImg) {
+                    modalImg.src = img.src;
+                    modalImg.alt = img.alt || 'Project Preview';
+                    modalImg.style.display = 'block';
+                }
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
             });
         });
 
-        const closeModal = () => {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        };
+        // Videos preview (Indeed Date Scout & other media)
+        document.querySelectorAll('.clickable-media').forEach(mediaWrap => {
+            mediaWrap.addEventListener('click', function (e) {
+                const videoSrc = this.getAttribute('data-video-src') || 'img/indeed-date-reveal-demo.mp4';
+                if (modalImg) {
+                    modalImg.removeAttribute('src');
+                    modalImg.style.display = 'none';
+                }
+                if (modalVideo) {
+                    modalVideo.style.display = 'block';
+                    modalVideo.src = videoSrc;
+                    modalVideo.load();
+                    modalVideo.currentTime = 0;
+                    const playPromise = modalVideo.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(() => {
+                            // Autoplay without user direct gesture on video element may be muted by browser policy
+                        });
+                    }
+                }
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
 
-        modal.addEventListener('click', closeModal);
+        if (modalCloseBtn) {
+            modalCloseBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeModal();
+            });
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal || e.target.classList.contains('modal-inner-media')) {
+                closeModal();
+            }
+        });
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.classList.contains('active')) {

@@ -14,17 +14,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="style.css?v=10">
 </head>
 
 <body>
 
     <!-- Mobile Top Navigation Header -->
     <header class="mobile-header">
-        <a href="#about" class="mobile-brand">cyril fernando</a>
+        <div class="mobile-brand-group">
+            <span class="mono-micro mobile-brand-label">PORTFOLIO</span>
+            <span class="mono-micro-sep">/</span>
+            <span class="mono-micro">BI ANALYST</span>
+        </div>
         <div class="mobile-header-actions">
-            <button class="mobile-arcade-btn" id="btn-mobile-arcade" aria-label="Launch Red Ball Game">🎮 ARCADE</button>
-            <span class="mono-micro">bi analyst</span>
+            <button class="mobile-arcade-btn" id="btn-mobile-arcade" aria-label="Launch Red Ball Game"><span class="mobile-arcade-emoji">🎮</span> ARCADE</button>
         </div>
     </header>
 
@@ -35,7 +38,7 @@
                 <!-- Hybrid Bi-tonal Profile Picture Frame -->
                 <div class="avatar-frame">
                     <div class="avatar-inner">
-                        <img src="img/personal_pic_hybrid.png" alt="Cyril Fernando" class="avatar-img">
+                        <img src="img/personal_pic_hybrid.png" alt="Cyril Fernando" class="avatar-img" width="104" height="104" fetchpriority="high">
                     </div>
                 </div>
                 <div class="brand-info">
@@ -90,6 +93,23 @@
         <!-- Main Column -->
         <main class="main-content">
             
+            <!-- Mobile Profile Hero (Visible strictly on mobile & screen width < 1024px) -->
+            <div class="mobile-profile-hero">
+                <div class="avatar-frame avatar-frame-mobile">
+                    <div class="avatar-inner">
+                        <img src="img/personal_pic_hybrid.png" alt="Cyril Fernando" class="avatar-img" width="104" height="104" fetchpriority="high">
+                    </div>
+                </div>
+                <div class="mobile-profile-meta">
+                    <div class="mobile-profile-name">Cyril Fernando</div>
+                    <div class="mobile-profile-role">business intelligence analyst</div>
+                    <div class="status-pill">
+                        <span class="status-dot"></span>
+                        <span class="mono-micro">open to opportunities</span>
+                    </div>
+                </div>
+            </div>
+
             <!-- 01 — About -->
             <section id="about" class="section">
                 <div class="section-label">01 about</div>
@@ -241,7 +261,7 @@
                             </div>
 
                             <div class="card-actions">
-                                <a href="https://github.com/cyril-fernando/sql-data-warehouse-project" target="_blank" rel="noopener noreferrer" class="action-link">
+                                <a href="https://github.com/crylz-z/sql-data-warehouse-project" target="_blank" rel="noopener noreferrer" class="action-link">
                                     View Source ↗
                                 </a>
                             </div>
@@ -354,11 +374,17 @@
                                 </div>
                             </div>
 
-                            <div class="video-wrapper">
-                                <video controls preload="metadata">
+                            <div class="video-wrapper clickable-media" id="video-indeed-wrapper" data-video-src="img/indeed-date-reveal-demo.mp4" title="Click to view enlarged demo">
+                                <video preload="metadata" muted playsinline loop autoplay id="indeed-video-preview">
                                     <source src="img/indeed-date-reveal-demo.mp4" type="video/mp4">
                                     Your browser does not support HTML5 video.
                                 </video>
+                                <div class="media-expand-overlay">
+                                    <div class="media-expand-btn">
+                                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                                        <span>ENLARGE DEMO</span>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="card-actions">
@@ -489,9 +515,15 @@
         </main>
     </div>
 
-    <!-- Lightbox Modal -->
-    <div id="lightbox-modal" class="modal" role="dialog" aria-modal="true" aria-label="Image Preview">
-        <img id="lightbox-img" class="modal-content" src="" alt="Enlarged Preview">
+    <!-- Lightbox Modal (Images & Videos) -->
+    <div id="lightbox-modal" class="modal" role="dialog" aria-modal="true" aria-label="Media Preview">
+        <div class="modal-inner-media">
+            <button id="lightbox-close-btn" class="lightbox-close-btn" aria-label="Close Preview" title="Close (Esc)">✕</button>
+            <img id="lightbox-img" class="modal-content" src="" alt="Enlarged Preview" style="display: none;">
+            <video id="lightbox-video" class="modal-content modal-video" controls playsinline preload="auto" style="display: none;">
+                Your browser does not support HTML5 video.
+            </video>
+        </div>
     </div>
 
     <!-- Expanded Arcade Theater Modal -->

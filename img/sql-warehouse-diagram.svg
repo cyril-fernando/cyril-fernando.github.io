@@ -1,169 +1,349 @@
-<!--?xml version="1.0" encoding="UTF-8"?-->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 320" width="940" height="320">
-  <defs>
-    <style>
-      .bg { fill: #fdfdfd; }
-      .stage-box { fill: #ffffff; stroke: #e5e5e5; stroke-width: 1.2; rx: 8px; }
-      .stage-box-focal { fill: #fffaf7; stroke: #eb6c36; stroke-width: 1.8; rx: 8px; }
-      
-      .step-pill { fill: #2d3142; rx: 4px; }
-      .step-pill-focal { fill: #eb6c36; rx: 4px; }
-      .step-pill-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; font-size: 9px; font-weight: 700; fill: #ffffff; letter-spacing: 0.08em; text-transform: uppercase; }
-      
-      .stage-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13px; font-weight: 700; fill: #2d3142; letter-spacing: -0.01em; }
-      .stage-title-focal { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13px; font-weight: 700; fill: #eb6c36; letter-spacing: -0.01em; }
-      .stage-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; font-size: 10px; fill: #4f5d75; }
-      
-      .item-badge { fill: #f5f5f5; stroke: #e5e5e5; stroke-width: 1; rx: 4px; }
-      .item-badge-focal { fill: #fff4ed; stroke: #fcd5c3; stroke-width: 1; rx: 4px; }
-      .item-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #2d3142; font-weight: 500; }
-      .item-desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; font-size: 9px; fill: #4f5d75; }
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" role="img" aria-labelledby="sql-star-schema-title sql-star-schema-desc">
+  <title id="sql-star-schema-title">Enterprise SQL Data Warehouse Star Schema Data Model</title>
+  <desc id="sql-star-schema-desc">Physical star schema dimensional model with central fact_loans surrounded by conformed dimensions dim_customer, dim_branch, dim_date, and dim_item with column-level foreign keys and SQL types.</desc>
 
-      .conn-line { stroke: #bfc0c0; stroke-width: 1.5; fill: none; }
-      .conn-line-focal { stroke: #eb6c36; stroke-width: 2; fill: none; }
+  <defs>
+    <style><![CDATA[
+      .bg { fill: #fdfdfd; }
       
-      .flow-label-bg { fill: #ffffff; stroke: #bfc0c0; stroke-width: 1; rx: 10px; }
-      .flow-label-focal-bg { fill: #eb6c36; rx: 10px; }
-      .flow-label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; font-size: 8.5px; fill: #4f5d75; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
-      .flow-label-focal { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; font-size: 8.5px; fill: #ffffff; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
-    </style>
-    <marker id="m-wh-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-      <polygon points="0 0, 8 3, 0 6" fill="#bfc0c0"/>
-    </marker>
-    <marker id="m-wh-focal" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      /* Base Typography */
+      .font-sans, text, .table-title, .table-title-focal, .col-name, .col-name-focal { 
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+      }
+      .font-mono, .type-tag, .chip-text, .col-type, .idx-text, .legend-text, .conn-label { 
+        font-family: ui-monospace, "SF Mono", "Segoe UI Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, monospace; 
+      }
+
+      /* Tables */
+      .table-box { fill: #ffffff; stroke: #2d3142; stroke-width: 1; rx: 6px; }
+      .table-box-focal { fill: #ffffff; stroke: #eb6c36; stroke-width: 1.6; rx: 6px; }
+      .table-head { fill: rgba(45,49,66,0.04); }
+      .table-head-focal { fill: rgba(235,108,54,0.09); }
+      .row-alt { fill: rgba(45,49,66,0.02); }
+      .row-divider { stroke: rgba(45,49,66,0.12); stroke-width: 0.8; }
+      
+      .table-title { font-size: 12px; font-weight: 600; fill: #2d3142; }
+      .table-title-focal { font-size: 12px; font-weight: 700; fill: #9a3412; }
+      .type-tag { font-size: 7.5px; font-weight: 700; letter-spacing: 0.08em; text-anchor: middle; dominant-baseline: central; }
+      
+      .col-name { font-size: 11px; font-weight: 500; fill: #2d3142; dominant-baseline: central; }
+      .col-name-focal { font-size: 11px; font-weight: 600; fill: #9a3412; dominant-baseline: central; }
+      .col-type { font-size: 8.5px; fill: #64748b; text-anchor: end; dominant-baseline: central; }
+      .chip-text { font-size: 7.5px; font-weight: 700; text-anchor: middle; dominant-baseline: central; }
+      
+      /* FK Connectors */
+      .fk-line { fill: none; stroke: #eb6c36; stroke-width: 1.4; }
+      .fk-label-bg { fill: #ffffff; stroke: #fcd5c3; stroke-width: 1; rx: 4px; }
+      .conn-label { font-size: 7.5px; font-weight: 700; fill: #eb6c36; letter-spacing: 0.05em; text-anchor: middle; dominant-baseline: central; }
+      
+      /* Indexes & Legend */
+      .idx-label { font-size: 7.5px; font-weight: 700; fill: #64748b; letter-spacing: 0.12em; text-transform: uppercase; dominant-baseline: central; }
+      .idx-text { font-size: 8.5px; fill: #64748b; dominant-baseline: central; }
+      .legend-text { font-size: 8px; fill: #4f5d75; dominant-baseline: central; }
+    ]]></style>
+
+    <!-- Arrow Markers -->
+    <marker id="m-fk" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
       <polygon points="0 0, 8 3, 0 6" fill="#eb6c36"/>
     </marker>
   </defs>
 
-  <!-- Clean Canvas Background -->
-  <rect width="940" height="320" class="bg" rx="10"/>
+  <!-- Background -->
+  <rect width="960" height="440" rx="10" class="bg"/>
 
-  <!-- Connecting Pipes -->
-  <line x1="205" y1="160" x2="275" y2="160" class="conn-line" marker-end="url(#m-wh-arr)"/>
-  <line x1="455" y1="160" x2="525" y2="160" class="conn-line-focal" marker-end="url(#m-wh-focal)"/>
-  <line x1="705" y1="160" x2="775" y2="160" class="conn-line" marker-end="url(#m-wh-arr)"/>
+  <!-- =========================================================================
+       COLUMN-TO-COLUMN FOREIGN KEY CONNECTORS (Drawn before tables)
+       ========================================================================= -->
 
-  <!-- Flow Action Badges -->
-  <g transform="translate(240, 148)">
-    <rect x="-36" y="-10" width="72" height="20" class="flow-label-bg"/>
-    <text x="0" y="4" text-anchor="middle" class="flow-label">INGEST</text>
-  </g>
-  
-  <g transform="translate(490, 148)">
-    <rect x="-40" y="-10" width="80" height="20" class="flow-label-focal-bg"/>
-    <text x="0" y="4" text-anchor="middle" class="flow-label-focal">STAR MODEL</text>
+  <!-- FK 1: fact_loans.customer_key (x=355, y=103) -> dim_customer.customer_key (x=275, y=71) -->
+  <path d="M 355,103 H 320 Q 310,103 310,95 V 79 Q 310,71 300,71 H 275" class="fk-line" marker-end="url(#m-fk)"/>
+  <g transform="translate(310, 87)">
+    <rect x="-16" y="-7" width="32" height="14" class="fk-label-bg"/>
+    <text x="0" y="0" class="conn-label">N : 1</text>
   </g>
 
-  <g transform="translate(740, 148)">
-    <rect x="-34" y="-10" width="68" height="20" class="flow-label-bg"/>
-    <text x="0" y="4" text-anchor="middle" class="flow-label">REPORT</text>
+  <!-- FK 2: fact_loans.branch_key (x=355, y=127) -> dim_branch.branch_key (x=275, y=261) -->
+  <path d="M 355,127 H 320 Q 310,127 310,137 V 251 Q 310,261 300,261 H 275" class="fk-line" marker-end="url(#m-fk)"/>
+  <g transform="translate(310, 194)">
+    <rect x="-16" y="-7" width="32" height="14" class="fk-label-bg"/>
+    <text x="0" y="0" class="conn-label">N : 1</text>
   </g>
 
-  <!-- Stage 1: Transactional Sources -->
-  <g transform="translate(25, 45)">
-    <rect width="180" height="230" class="stage-box"/>
-    <rect x="14" y="14" width="22" height="16" class="step-pill" style="fill:#5e7a9b;"/>
-    <text x="25" y="26" text-anchor="middle" class="step-pill-text">01</text>
-    <text x="44" y="27" class="stage-title">Source Data</text>
-    <text x="14" y="46" class="stage-sub">Operational Databases</text>
-
-    <g transform="translate(14, 62)">
-      <rect width="152" height="42" class="item-badge"/>
-      <text x="10" y="18" class="item-text">Pawn &amp; Loan Records</text>
-      <text x="10" y="32" class="item-desc">Daily branch transactions</text>
-    </g>
-
-    <g transform="translate(14, 114)">
-      <rect width="152" height="42" class="item-badge"/>
-      <text x="10" y="18" class="item-text">Customer Files</text>
-      <text x="10" y="32" class="item-desc">Demographics &amp; KYC info</text>
-    </g>
-
-    <g transform="translate(14, 166)">
-      <rect width="152" height="42" class="item-badge"/>
-      <text x="10" y="18" class="item-text">Branch Spreadsheets</text>
-      <text x="10" y="32" class="item-desc">Inventory &amp; appraisal logs</text>
-    </g>
+  <!-- FK 3: fact_loans.date_key (x=605, y=151) -> dim_date.date_key (x=685, y=71) -->
+  <path d="M 605,151 H 640 Q 650,151 650,143 V 79 Q 650,71 660,71 H 685" class="fk-line" marker-end="url(#m-fk)"/>
+  <g transform="translate(650, 111)">
+    <rect x="-16" y="-7" width="32" height="14" class="fk-label-bg"/>
+    <text x="0" y="0" class="conn-label">N : 1</text>
   </g>
 
-  <!-- Stage 2: Staging & Cleansing -->
-  <g transform="translate(275, 45)">
-    <rect width="180" height="230" class="stage-box"/>
-    <rect x="14" y="14" width="22" height="16" class="step-pill" style="fill:#7c8f6f;"/>
-    <text x="25" y="26" text-anchor="middle" class="step-pill-text">02</text>
-    <text x="44" y="27" class="stage-title">Staging Layer</text>
-    <text x="14" y="46" class="stage-sub">SQL Server ETL</text>
-
-    <g transform="translate(14, 62)">
-      <rect width="152" height="42" class="item-badge"/>
-      <text x="10" y="18" class="item-text">Data Cleansing</text>
-      <text x="10" y="32" class="item-desc">Deduplicate &amp; clean types</text>
-    </g>
-
-    <g transform="translate(14, 114)">
-      <rect width="152" height="42" class="item-badge"/>
-      <text x="10" y="18" class="item-text">Business Rules</text>
-      <text x="10" y="32" class="item-desc">Validate loan status logic</text>
-    </g>
-
-    <g transform="translate(14, 166)">
-      <rect width="152" height="42" class="item-badge"/>
-      <text x="10" y="18" class="item-text">Automated Tasks</text>
-      <text x="10" y="32" class="item-desc">Scheduled batch jobs</text>
-    </g>
+  <!-- FK 4: fact_loans.item_key (x=605, y=175) -> dim_item.item_key (x=685, y=261) -->
+  <path d="M 605,175 H 640 Q 650,175 650,185 V 251 Q 650,261 660,261 H 685" class="fk-line" marker-end="url(#m-fk)"/>
+  <g transform="translate(650, 218)">
+    <rect x="-16" y="-7" width="32" height="14" class="fk-label-bg"/>
+    <text x="0" y="0" class="conn-label">N : 1</text>
   </g>
 
-  <!-- Stage 3: Star Schema Warehouse (Focal - Atomic Tangerine) -->
-  <g transform="translate(525, 45)">
-    <rect width="180" height="230" class="stage-box-focal"/>
-    <rect x="14" y="14" width="22" height="16" class="step-pill-focal"/>
-    <text x="25" y="26" text-anchor="middle" class="step-pill-text">03</text>
-    <text x="44" y="27" class="stage-title-focal">Star Schema ★</text>
-    <text x="14" y="46" class="stage-sub" style="color:#eb6c36;">Clean Analytical Models</text>
 
-    <g transform="translate(14, 62)">
-      <rect width="152" height="42" class="item-badge-focal"/>
-      <text x="10" y="18" class="item-text" style="font-weight:700; fill:#eb6c36;">Fact Tables</text>
-      <text x="10" y="32" class="item-desc">Sales volume, loans &amp; interest</text>
-    </g>
+  <!-- =========================================================================
+       DIMENSION 1: dim_customer (Top-Left, x=35, y=35, w=240, h=152)
+       ========================================================================= -->
+  <g transform="translate(35, 35)">
+    <rect width="240" height="152" class="table-box"/>
+    
+    <!-- Table Header -->
+    <rect width="240" height="26" rx="6" class="table-head"/>
+    <rect y="18" width="240" height="8" class="table-head"/>
+    <line x1="0" y1="26" x2="240" y2="26" stroke="#2d3142" stroke-width="0.8"/>
+    <text x="12" y="13" class="table-title" dominant-baseline="central">gold.dim_customer</text>
+    <rect x="180" y="6" width="48" height="14" rx="2" fill="none" stroke="rgba(45,49,66,0.3)" stroke-width="0.8"/>
+    <text x="204" y="13" fill="#4f5d75" class="type-tag">DIMENSION</text>
 
-    <g transform="translate(14, 114)">
-      <rect width="152" height="42" class="item-badge-focal"/>
-      <text x="10" y="18" class="item-text" style="font-weight:700; fill:#eb6c36;">Dimension Tables</text>
-      <text x="10" y="32" class="item-desc">Branch, Customer, Date, Item</text>
-    </g>
+    <!-- Row 1: PK -->
+    <rect y="26" width="240" height="24" class="row-alt"/>
+    <text x="12" y="38" class="col-name" style="font-weight:600;">customer_key</text>
+    <rect x="122" y="32" width="22" height="12" rx="2" fill="rgba(45,49,66,0.06)" stroke="#2d3142" stroke-width="0.8"/>
+    <text x="133" y="38" fill="#2d3142" class="chip-text">PK</text>
+    <text x="228" y="38" class="col-type">int</text>
 
-    <g transform="translate(14, 166)">
-      <rect width="152" height="42" class="item-badge-focal"/>
-      <text x="10" y="18" class="item-text" style="font-weight:700; fill:#eb6c36;">Fast Querying</text>
-      <text x="10" y="32" class="item-desc">Optimized for rapid lookups</text>
-    </g>
+    <!-- Row 2: UQ -->
+    <text x="12" y="62" class="col-name">customer_id</text>
+    <rect x="122" y="56" width="22" height="12" rx="2" fill="rgba(79,93,117,0.06)" stroke="#4f5d75" stroke-width="0.8"/>
+    <text x="133" y="62" fill="#4f5d75" class="chip-text">UQ</text>
+    <text x="228" y="62" class="col-type">varchar(32)</text>
+
+    <!-- Row 3 -->
+    <rect y="74" width="240" height="24" class="row-alt"/>
+    <text x="12" y="86" class="col-name">customer_segment</text>
+    <text x="228" y="86" class="col-type">varchar(20)</text>
+
+    <!-- Row 4 -->
+    <text x="12" y="110" class="col-name">credit_risk_tier</text>
+    <text x="228" y="110" class="col-type">char(2)</text>
+
+    <!-- Row 5 -->
+    <rect y="122" width="240" height="24" class="row-alt"/>
+    <text x="12" y="134" class="col-name">city_residence</text>
+    <text x="228" y="134" class="col-type">varchar(50)</text>
   </g>
 
-  <!-- Stage 4: Power BI Analytics -->
-  <g transform="translate(775, 45)">
-    <rect width="140" height="230" class="stage-box"/>
-    <rect x="14" y="14" width="22" height="16" class="step-pill" style="fill:#2e5aa8;"/>
-    <text x="25" y="26" text-anchor="middle" class="step-pill-text">04</text>
-    <text x="44" y="27" class="stage-title">BI Reports</text>
-    <text x="14" y="46" class="stage-sub">Power BI &amp; DAX</text>
 
-    <g transform="translate(14, 62)">
-      <rect width="112" height="42" class="item-badge"/>
-      <text x="8" y="18" class="item-text">Executive KPI</text>
-      <text x="8" y="32" class="item-desc">Revenue &amp; growth</text>
-    </g>
+  <!-- =========================================================================
+       DIMENSION 2: dim_branch (Bottom-Left, x=35, y=225, w=240, h=130)
+       ========================================================================= -->
+  <g transform="translate(35, 225)">
+    <rect width="240" height="130" class="table-box"/>
+    
+    <!-- Table Header -->
+    <rect width="240" height="26" rx="6" class="table-head"/>
+    <rect y="18" width="240" height="8" class="table-head"/>
+    <line x1="0" y1="26" x2="240" y2="26" stroke="#2d3142" stroke-width="0.8"/>
+    <text x="12" y="13" class="table-title" dominant-baseline="central">gold.dim_branch</text>
+    <rect x="180" y="6" width="48" height="14" rx="2" fill="none" stroke="rgba(45,49,66,0.3)" stroke-width="0.8"/>
+    <text x="204" y="13" fill="#4f5d75" class="type-tag">DIMENSION</text>
 
-    <g transform="translate(14, 114)">
-      <rect width="112" height="42" class="item-badge"/>
-      <text x="8" y="18" class="item-text">Branch Audit</text>
-      <text x="8" y="32" class="item-desc">Daily targets</text>
-    </g>
+    <!-- Row 1: PK -->
+    <rect y="26" width="240" height="24" class="row-alt"/>
+    <text x="12" y="38" class="col-name" style="font-weight:600;">branch_key</text>
+    <rect x="122" y="32" width="22" height="12" rx="2" fill="rgba(45,49,66,0.06)" stroke="#2d3142" stroke-width="0.8"/>
+    <text x="133" y="38" fill="#2d3142" class="chip-text">PK</text>
+    <text x="228" y="38" class="col-type">int</text>
 
-    <g transform="translate(14, 166)">
-      <rect width="112" height="42" class="item-badge"/>
-      <text x="8" y="18" class="item-text">Inventory Alert</text>
-      <text x="8" y="32" class="item-desc">Unclaimed items</text>
-    </g>
+    <!-- Row 2: UQ -->
+    <text x="12" y="62" class="col-name">branch_code</text>
+    <rect x="122" y="56" width="22" height="12" rx="2" fill="rgba(79,93,117,0.06)" stroke="#4f5d75" stroke-width="0.8"/>
+    <text x="133" y="62" fill="#4f5d75" class="chip-text">UQ</text>
+    <text x="228" y="62" class="col-type">varchar(10)</text>
+
+    <!-- Row 3 -->
+    <rect y="74" width="240" height="24" class="row-alt"/>
+    <text x="12" y="86" class="col-name">region_cluster</text>
+    <text x="228" y="86" class="col-type">varchar(50)</text>
+
+    <!-- Row 4 -->
+    <text x="12" y="110" class="col-name">audit_status</text>
+    <text x="228" y="110" class="col-type">varchar(15)</text>
   </g>
+
+
+  <!-- =========================================================================
+       CENTRAL FOCAL FACT: fact_loans (Center, x=355, y=35, w=250, h=330)
+       ========================================================================= -->
+  <g transform="translate(355, 35)">
+    <rect width="250" height="330" class="table-box-focal"/>
+    
+    <!-- Table Header (Focal Accent) -->
+    <rect width="250" height="28" rx="6" class="table-head-focal"/>
+    <rect y="20" width="250" height="8" class="table-head-focal"/>
+    <line x1="0" y1="28" x2="250" y2="28" stroke="#eb6c36" stroke-width="1.2"/>
+    <text x="12" y="14" class="table-title-focal" dominant-baseline="central">gold.fact_loans ★</text>
+    <rect x="184" y="7" width="54" height="14" rx="2" fill="#eb6c36"/>
+    <text x="211" y="14" fill="#ffffff" class="type-tag" style="font-weight:700;">FACT TABLE</text>
+
+    <!-- Row 1: PK -->
+    <rect y="28" width="250" height="24" class="row-alt"/>
+    <text x="12" y="40" class="col-name-focal">loan_id</text>
+    <rect x="136" y="34" width="22" height="12" rx="2" fill="rgba(154,52,18,0.08)" stroke="#9a3412" stroke-width="0.8"/>
+    <text x="147" y="40" fill="#9a3412" class="chip-text">PK</text>
+    <text x="238" y="40" class="col-type" style="fill:#9a3412; font-weight:600;">bigint</text>
+
+    <!-- Row 2: FK Customer -->
+    <text x="12" y="64" class="col-name" style="font-weight:600;">customer_key</text>
+    <rect x="136" y="58" width="22" height="12" rx="2" fill="rgba(235,108,54,0.08)" stroke="#eb6c36" stroke-width="0.8"/>
+    <text x="147" y="64" fill="#eb6c36" class="chip-text">FK</text>
+    <text x="238" y="64" class="col-type">int</text>
+
+    <!-- Row 3: FK Branch -->
+    <rect y="76" width="250" height="24" class="row-alt"/>
+    <text x="12" y="88" class="col-name" style="font-weight:600;">branch_key</text>
+    <rect x="136" y="82" width="22" height="12" rx="2" fill="rgba(235,108,54,0.08)" stroke="#eb6c36" stroke-width="0.8"/>
+    <text x="147" y="88" fill="#eb6c36" class="chip-text">FK</text>
+    <text x="238" y="88" class="col-type">int</text>
+
+    <!-- Row 4: FK Date -->
+    <text x="12" y="112" class="col-name" style="font-weight:600;">date_key</text>
+    <rect x="136" y="106" width="22" height="12" rx="2" fill="rgba(235,108,54,0.08)" stroke="#eb6c36" stroke-width="0.8"/>
+    <text x="147" y="112" fill="#eb6c36" class="chip-text">FK</text>
+    <text x="238" y="112" class="col-type">int</text>
+
+    <!-- Row 5: FK Item -->
+    <rect y="124" width="250" height="24" class="row-alt"/>
+    <text x="12" y="136" class="col-name" style="font-weight:600;">item_key</text>
+    <rect x="136" y="130" width="22" height="12" rx="2" fill="rgba(235,108,54,0.08)" stroke="#eb6c36" stroke-width="0.8"/>
+    <text x="147" y="136" fill="#eb6c36" class="chip-text">FK</text>
+    <text x="238" y="136" class="col-type">int</text>
+
+    <!-- Row 6: Measure 1 -->
+    <text x="12" y="160" class="col-name">principal_amount</text>
+    <text x="238" y="160" class="col-type">decimal(12,2)</text>
+
+    <!-- Row 7: Measure 2 -->
+    <rect y="172" width="250" height="24" class="row-alt"/>
+    <text x="12" y="184" class="col-name">interest_rate</text>
+    <text x="238" y="184" class="col-type">decimal(5,2)</text>
+
+    <!-- Row 8: Measure 3 -->
+    <text x="12" y="208" class="col-name">total_redeemed</text>
+    <text x="238" y="208" class="col-type">decimal(12,2)</text>
+
+    <!-- Row 9: Degenerate Dim -->
+    <rect y="220" width="250" height="24" class="row-alt"/>
+    <text x="12" y="232" class="col-name">loan_status</text>
+    <text x="238" y="232" class="col-type">varchar(20)</text>
+
+    <!-- Indexes Section -->
+    <line x1="0" y1="248" x2="250" y2="248" stroke="#fcd5c3" stroke-width="0.8"/>
+    <text x="12" y="263" class="idx-label" style="fill:#c2410c;">INDEXES &amp; OPTIMIZATION</text>
+    <text x="12" y="280" class="idx-text">ccix_fact_loans (Clustered Columnstore)</text>
+    <text x="12" y="296" class="idx-text">ix_fact_customer_date (Non-clustered FK)</text>
+    <text x="12" y="314" class="idx-text" style="fill:#eb6c36; font-weight:600;">Grain: 1 row per daily pawn transaction</text>
+  </g>
+
+
+  <!-- =========================================================================
+       DIMENSION 3: dim_date (Top-Right, x=685, y=35, w=240, h=152)
+       ========================================================================= -->
+  <g transform="translate(685, 35)">
+    <rect width="240" height="152" class="table-box"/>
+    
+    <!-- Table Header -->
+    <rect width="240" height="26" rx="6" class="table-head"/>
+    <rect y="18" width="240" height="8" class="table-head"/>
+    <line x1="0" y1="26" x2="240" y2="26" stroke="#2d3142" stroke-width="0.8"/>
+    <text x="12" y="13" class="table-title" dominant-baseline="central">gold.dim_date</text>
+    <rect x="180" y="6" width="48" height="14" rx="2" fill="none" stroke="rgba(45,49,66,0.3)" stroke-width="0.8"/>
+    <text x="204" y="13" fill="#4f5d75" class="type-tag">DIMENSION</text>
+
+    <!-- Row 1: PK -->
+    <rect y="26" width="240" height="24" class="row-alt"/>
+    <text x="12" y="38" class="col-name" style="font-weight:600;">date_key</text>
+    <rect x="122" y="32" width="22" height="12" rx="2" fill="rgba(45,49,66,0.06)" stroke="#2d3142" stroke-width="0.8"/>
+    <text x="133" y="38" fill="#2d3142" class="chip-text">PK</text>
+    <text x="228" y="38" class="col-type">int</text>
+
+    <!-- Row 2: UQ -->
+    <text x="12" y="62" class="col-name">calendar_date</text>
+    <rect x="122" y="56" width="22" height="12" rx="2" fill="rgba(79,93,117,0.06)" stroke="#4f5d75" stroke-width="0.8"/>
+    <text x="133" y="62" fill="#4f5d75" class="chip-text">UQ</text>
+    <text x="228" y="62" class="col-type">date</text>
+
+    <!-- Row 3 -->
+    <rect y="74" width="240" height="24" class="row-alt"/>
+    <text x="12" y="86" class="col-name">fiscal_month_num</text>
+    <text x="228" y="86" class="col-type">tinyint</text>
+
+    <!-- Row 4 -->
+    <text x="12" y="110" class="col-name">fiscal_quarter</text>
+    <text x="228" y="110" class="col-type">char(2)</text>
+
+    <!-- Row 5 -->
+    <rect y="122" width="240" height="24" class="row-alt"/>
+    <text x="12" y="134" class="col-name">fiscal_year</text>
+    <text x="228" y="134" class="col-type">smallint</text>
+  </g>
+
+
+  <!-- =========================================================================
+       DIMENSION 4: dim_item (Bottom-Right, x=685, y=225, w=240, h=130)
+       ========================================================================= -->
+  <g transform="translate(685, 225)">
+    <rect width="240" height="130" class="table-box"/>
+    
+    <!-- Table Header -->
+    <rect width="240" height="26" rx="6" class="table-head"/>
+    <rect y="18" width="240" height="8" class="table-head"/>
+    <line x1="0" y1="26" x2="240" y2="26" stroke="#2d3142" stroke-width="0.8"/>
+    <text x="12" y="13" class="table-title" dominant-baseline="central">gold.dim_item</text>
+    <rect x="180" y="6" width="48" height="14" rx="2" fill="none" stroke="rgba(45,49,66,0.3)" stroke-width="0.8"/>
+    <text x="204" y="13" fill="#4f5d75" class="type-tag">DIMENSION</text>
+
+    <!-- Row 1: PK -->
+    <rect y="26" width="240" height="24" class="row-alt"/>
+    <text x="12" y="38" class="col-name" style="font-weight:600;">item_key</text>
+    <rect x="122" y="32" width="22" height="12" rx="2" fill="rgba(45,49,66,0.06)" stroke="#2d3142" stroke-width="0.8"/>
+    <text x="133" y="38" fill="#2d3142" class="chip-text">PK</text>
+    <text x="228" y="38" class="col-type">int</text>
+
+    <!-- Row 2 -->
+    <text x="12" y="62" class="col-name">item_category</text>
+    <text x="228" y="62" class="col-type">varchar(30)</text>
+
+    <!-- Row 3 -->
+    <rect y="74" width="240" height="24" class="row-alt"/>
+    <text x="12" y="86" class="col-name">appraised_value</text>
+    <text x="228" y="86" class="col-type">decimal(12,2)</text>
+
+    <!-- Row 4 -->
+    <text x="12" y="110" class="col-name">metal_purity_carat</text>
+    <text x="228" y="110" class="col-type">varchar(10)</text>
+  </g>
+
+
+  <!-- =========================================================================
+       LEGEND STRIP (Bottom, y=400)
+       ========================================================================= -->
+  <line x1="35" y1="388" x2="925" y2="388" stroke="rgba(45,49,66,0.12)" stroke-width="0.8"/>
+  <text x="35" y="408" class="idx-label" style="font-size:8px;">STAR SCHEMA LEGEND</text>
+
+  <!-- Legend 1: Focal Fact -->
+  <rect x="180" y="402" width="14" height="12" rx="2" fill="rgba(235,108,54,0.12)" stroke="#eb6c36" stroke-width="1.2"/>
+  <text x="200" y="408" class="legend-text">Central Fact Table</text>
+
+  <!-- Legend 2: Dimension -->
+  <rect x="330" y="402" width="14" height="12" rx="2" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+  <text x="350" y="408" class="legend-text">Conformed Dimension</text>
+
+  <!-- Legend 3: FK Link -->
+  <line x1="500" y1="408" x2="524" y2="408" stroke="#eb6c36" stroke-width="1.4" marker-end="url(#m-fk)"/>
+  <text x="532" y="408" class="legend-text">Foreign Key Join (N : 1)</text>
+
+  <!-- Legend 4: Key Badges -->
+  <rect x="715" y="402" width="18" height="12" rx="2" fill="rgba(45,49,66,0.06)" stroke="#2d3142" stroke-width="0.8"/>
+  <text x="724" y="408" fill="#2d3142" class="chip-text" style="font-size:7px;">PK</text>
+  <rect x="737" y="402" width="18" height="12" rx="2" fill="rgba(235,108,54,0.08)" stroke="#eb6c36" stroke-width="0.8"/>
+  <text x="746" y="408" fill="#eb6c36" class="chip-text" style="font-size:7px;">FK</text>
+  <rect x="759" y="402" width="18" height="12" rx="2" fill="rgba(79,93,117,0.06)" stroke="#4f5d75" stroke-width="0.8"/>
+  <text x="768" y="408" fill="#4f5d75" class="chip-text" style="font-size:7px;">UQ</text>
+  <text x="784" y="408" class="legend-text">Key Constraints</text>
+
 </svg>

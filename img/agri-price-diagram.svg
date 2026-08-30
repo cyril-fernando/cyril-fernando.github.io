@@ -1,174 +1,277 @@
-<!--?xml version="1.0" encoding="UTF-8"?-->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="960" height="320">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="960" height="320" role="img" aria-labelledby="agri-price-arch-title agri-price-arch-desc">
+  <title id="agri-price-arch-title">Agri-Price Intelligence Platform Architecture</title>
+  <desc id="agri-price-arch-desc">Streamlined Medallion Lakehouse architecture showing DA Bantay Presyo extraction, AWS S3 storage tiers, DuckDB and dbt analytics core with Z-score anomaly detection, feeding Streamlit UI and Discord alerts.</desc>
+
   <defs>
-    <style>
+    <style><![CDATA[
       .bg { fill: #fdfdfd; }
+      
+      /* Base Typography */
+      .font-sans, text, .stage-title, .stage-title-focal, .node-name, .node-name-focal { 
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+      }
+      .font-mono, .step-pill-text, .stage-sub, .stage-sub-focal, .badge-tag, .node-sub, .conn-label, .conn-label-focal { 
+        font-family: ui-monospace, "SF Mono", "Segoe UI Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, monospace; 
+      }
+      
+      /* Stage Boxes */
       .stage-box { fill: #ffffff; stroke: #e5e5e5; stroke-width: 1.2; rx: 8px; }
       .stage-box-focal { fill: #fffaf7; stroke: #eb6c36; stroke-width: 1.8; rx: 8px; }
       
+      /* Step Pills & Headers */
       .step-pill { fill: #2d3142; rx: 4px; }
       .step-pill-focal { fill: #eb6c36; rx: 4px; }
-      .step-pill-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; font-size: 9px; font-weight: 700; fill: #ffffff; letter-spacing: 0.08em; text-transform: uppercase; }
+      .step-pill-text { font-size: 9px; font-weight: 700; fill: #ffffff; letter-spacing: 0.08em; text-transform: uppercase; }
       
-      .stage-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13px; font-weight: 700; fill: #2d3142; letter-spacing: -0.01em; }
-      .stage-title-focal { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13px; font-weight: 700; fill: #eb6c36; letter-spacing: -0.01em; }
-      .stage-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; font-size: 10px; fill: #4f5d75; }
+      .stage-title { font-size: 13px; font-weight: 700; fill: #2d3142; letter-spacing: -0.01em; }
+      .stage-title-focal { font-size: 13px; font-weight: 700; fill: #eb6c36; letter-spacing: -0.01em; }
+      .stage-sub { font-size: 10px; fill: #4f5d75; }
+      .stage-sub-focal { font-size: 10px; fill: #eb6c36; }
       
-      .item-badge { fill: #f5f5f5; stroke: #e5e5e5; stroke-width: 1; rx: 4px; }
-      .item-badge-focal { fill: #fff4ed; stroke: #fcd5c3; stroke-width: 1; rx: 4px; }
-      .item-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #2d3142; font-weight: 500; }
-      .item-desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; font-size: 9px; fill: #4f5d75; }
+      /* Inner Card Badges */
+      .item-badge { fill: #f8fafc; stroke: #e2e8f0; stroke-width: 1; rx: 6px; }
+      .item-badge-bronze { fill: #fdfbf7; stroke: #e8dfd8; stroke-width: 1; rx: 6px; }
+      .item-badge-silver { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1; rx: 6px; }
+      .item-badge-gold { fill: #fefce8; stroke: #fef08a; stroke-width: 1; rx: 6px; }
+      .item-badge-focal-sub { fill: #ffffff; stroke: #fcd5c3; stroke-width: 1; rx: 6px; }
+      .item-badge-focal-core { fill: #fff4ed; stroke: #f97316; stroke-width: 1.2; rx: 6px; }
+      .item-badge-app { fill: #f8fafc; stroke: #bfdbfe; stroke-width: 1; rx: 6px; }
+      .item-badge-bot { fill: #f5f7ff; stroke: #c7d2fe; stroke-width: 1; rx: 6px; }
 
+      .badge-tag { font-size: 8px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+      .node-name { font-size: 11px; font-weight: 600; fill: #2d3142; }
+      .node-name-focal { font-size: 11px; font-weight: 700; fill: #9a3412; }
+      .node-sub { font-size: 8.5px; fill: #64748b; }
+      
+      /* Flow Connectors & Labels */
       .conn-line { stroke: #bfc0c0; stroke-width: 1.5; fill: none; }
       .conn-line-focal { stroke: #eb6c36; stroke-width: 2; fill: none; }
+      .conn-line-alert { stroke: #5865f2; stroke-width: 1.4; stroke-dasharray: 4,3; fill: none; }
+      .conn-line-serve { stroke: #2e5aa8; stroke-width: 1.4; fill: none; }
       
       .flow-label-bg { fill: #ffffff; stroke: #bfc0c0; stroke-width: 1; rx: 10px; }
       .flow-label-focal-bg { fill: #eb6c36; rx: 10px; }
-      .flow-label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; font-size: 8px; fill: #4f5d75; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
-      .flow-label-focal { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; font-size: 8px; fill: #ffffff; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
-    </style>
+      .flow-label-serve-bg { fill: #ffffff; stroke: #93c5fd; stroke-width: 1; rx: 10px; }
+      .flow-label-alert-bg { fill: #ffffff; stroke: #a5b4fc; stroke-width: 1; rx: 10px; }
+      
+      .conn-label { font-size: 8px; font-weight: 700; letter-spacing: 0.06em; text-anchor: middle; dominant-baseline: central; fill: #4f5d75; text-transform: uppercase; }
+      .conn-label-focal { font-size: 8px; font-weight: 700; letter-spacing: 0.06em; text-anchor: middle; dominant-baseline: central; fill: #ffffff; text-transform: uppercase; }
+      .conn-label-serve { font-size: 8px; font-weight: 700; letter-spacing: 0.06em; text-anchor: middle; dominant-baseline: central; fill: #1d4ed8; text-transform: uppercase; }
+      .conn-label-alert { font-size: 8px; font-weight: 700; letter-spacing: 0.06em; text-anchor: middle; dominant-baseline: central; fill: #4338ca; text-transform: uppercase; }
+    ]]></style>
+
+    <!-- Marker Definitions -->
     <marker id="m-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
       <polygon points="0 0, 8 3, 0 6" fill="#bfc0c0"/>
+    </marker>
+    <marker id="m-arr-inner" markerWidth="6" markerHeight="5" refX="5" refY="2.5" orient="auto">
+      <polygon points="0 0, 6 2.5, 0 5" fill="#cbd5e1"/>
     </marker>
     <marker id="m-arr-focal" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
       <polygon points="0 0, 8 3, 0 6" fill="#eb6c36"/>
     </marker>
+    <marker id="m-arr-serve" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2e5aa8"/>
+    </marker>
+    <marker id="m-arr-alert" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#5865f2"/>
+    </marker>
   </defs>
 
-  <!-- Background -->
-  <rect width="960" height="320" class="bg" rx="10"/>
+  <!-- Canvas Background -->
+  <rect width="960" height="320" rx="10" class="bg"/>
 
-  <!-- Connecting Pipes -->
-  <!-- Stage 1 (right=200) to Stage 2 (left=270): mid=235 -->
-  <line x1="200" y1="160" x2="270" y2="160" class="conn-line" marker-end="url(#m-arr)"/>
-  <g transform="translate(235, 148)">
+  <!-- =========================================================================
+       CONNECTING PIPES & FLOW PILL BADGES (Spacious clearances, zero overlap)
+       ========================================================================= -->
+
+  <!-- Flow 1: Ingestion (right=195) -> S3 Lakehouse (left=265) : gap=70px, mid=230 -->
+  <line x1="195" y1="160" x2="265" y2="160" class="conn-line" marker-end="url(#m-arr)"/>
+  <g transform="translate(230, 160)">
     <rect x="-30" y="-10" width="60" height="20" class="flow-label-bg"/>
-    <text x="0" y="3.5" text-anchor="middle" class="flow-label">EXTRACT</text>
+    <text x="0" y="0" class="conn-label">PARQUET</text>
   </g>
 
-  <!-- Stage 2 (right=450) to Stage 3 (left=530): mid=490 -->
-  <line x1="450" y1="160" x2="530" y2="160" class="conn-line-focal" marker-end="url(#m-arr-focal)"/>
-  <g transform="translate(490, 148)">
-    <rect x="-32" y="-10" width="64" height="20" class="flow-label-focal-bg"/>
-    <text x="0" y="3.5" text-anchor="middle" class="flow-label-focal">ANOMALY</text>
+  <!-- Flow 2: S3 Lakehouse (right=445) -> Analytics Core (left=515) : gap=70px, mid=480 -->
+  <line x1="445" y1="160" x2="515" y2="160" class="conn-line-focal" marker-end="url(#m-arr-focal)"/>
+  <g transform="translate(480, 160)">
+    <rect x="-28" y="-10" width="56" height="20" class="flow-label-focal-bg"/>
+    <text x="0" y="0" class="conn-label-focal">HTTPFS</text>
   </g>
 
-  <!-- Stage 3 (right=710) to Stage 4 (left=790): mid=750 -->
-  <line x1="710" y1="160" x2="790" y2="160" class="conn-line" marker-end="url(#m-arr)"/>
-  <g transform="translate(750, 148)">
-    <rect x="-28" y="-10" width="56" height="20" class="flow-label-bg"/>
-    <text x="0" y="3.5" text-anchor="middle" class="flow-label">STREAM</text>
+  <!-- Flow 3: Analytics Core (right=725) -> Streamlit App (left=785) : gap=60px, mid=755, y=108 -->
+  <line x1="725" y1="108" x2="785" y2="108" class="conn-line-serve" marker-end="url(#m-arr-serve)"/>
+  <g transform="translate(755, 108)">
+    <rect x="-24" y="-9" width="48" height="18" class="flow-label-serve-bg"/>
+    <text x="0" y="0" class="conn-label-serve">SERVE</text>
   </g>
 
-  <!-- Stage 1: Data Sources -->
-  <g transform="translate(20, 45)">
-    <rect width="180" height="230" class="stage-box"/>
-    <rect x="14" y="14" width="22" height="16" class="step-pill" style="fill:#5e7a9b;"/>
+  <!-- Flow 4: Analytics Core (right=725) -> Discord Bot (left=785) : gap=60px, mid=755, y=212 -->
+  <line x1="725" y1="212" x2="785" y2="212" class="conn-line-alert" marker-end="url(#m-arr-alert)"/>
+  <g transform="translate(755, 212)">
+    <rect x="-24" y="-9" width="48" height="18" class="flow-label-alert-bg"/>
+    <text x="0" y="0" class="conn-label-alert">ALERT</text>
+  </g>
+
+
+  <!-- =========================================================================
+       STAGE 01: INGESTION (x=25, w=170, h=230)
+       ========================================================================= -->
+  <g transform="translate(25, 45)">
+    <rect width="170" height="230" class="stage-box"/>
+    
+    <!-- Stage Header -->
+    <rect x="14" y="14" width="22" height="16" class="step-pill" style="fill:#2e5aa8;"/>
     <text x="25" y="26" text-anchor="middle" class="step-pill-text">01</text>
-    <text x="44" y="27" class="stage-title">Raw Sources</text>
-    <text x="14" y="46" class="stage-sub">Market Price Feeds</text>
+    <text x="44" y="27" class="stage-title">Ingestion</text>
+    <text x="14" y="46" class="stage-sub">Automated Pipelines</text>
 
-    <!-- Content Items -->
-    <g transform="translate(14, 62)">
-      <rect width="152" height="42" class="item-badge"/>
-      <text x="10" y="18" class="item-text">PSA Price Bulletins</text>
-      <text x="10" y="32" class="item-desc">Daily agricultural dumps</text>
+    <!-- Source Node -->
+    <g transform="translate(12, 60)">
+      <rect width="146" height="44" class="item-badge"/>
+      <text x="10" y="16" fill="#2e5aa8" class="badge-tag">GOV DATA</text>
+      <text x="10" y="30" class="node-name">DA Bantay Presyo</text>
+      <text x="10" y="39" class="node-sub">Daily Price Feeds</text>
     </g>
 
-    <g transform="translate(14, 114)">
-      <rect width="152" height="42" class="item-badge"/>
-      <text x="10" y="18" class="item-text">Web Endpoints</text>
-      <text x="10" y="32" class="item-desc">DA Bantay Presyo feeds</text>
+    <!-- Inner connector arrow -->
+    <line x1="85" y1="104" x2="85" y2="114" stroke="#cbd5e1" stroke-width="1.2" marker-end="url(#m-arr-inner)"/>
+
+    <!-- Orchestrator Node -->
+    <g transform="translate(12, 114)">
+      <rect width="146" height="58" class="item-badge"/>
+      <text x="10" y="15" fill="#4f5d75" class="badge-tag">PIPELINE</text>
+      <text x="10" y="29" class="node-name">dlt + GitHub Actions</text>
+      <text x="10" y="41" class="node-sub">Cron: 3x/day (UTC)</text>
+      <text x="10" y="51" class="node-sub">Write-Audit-Publish (WAP)</text>
     </g>
 
-    <g transform="translate(14, 166)">
-      <rect width="152" height="42" class="item-badge"/>
-      <text x="10" y="18" class="item-text">Auto Extractor</text>
-      <text x="10" y="32" class="item-desc">dlt + GitHub Actions</text>
-    </g>
+    <!-- Stage Footer -->
+    <text x="85" y="214" text-anchor="middle" class="badge-tag" fill="#64748b">IDEMPOTENT EXTRACT</text>
   </g>
 
-  <!-- Stage 2: S3 Data Lake -->
-  <g transform="translate(270, 45)">
+
+  <!-- =========================================================================
+       STAGE 02: S3 LAKEHOUSE (x=265, w=180, h=230)
+       ========================================================================= -->
+  <g transform="translate(265, 45)">
     <rect width="180" height="230" class="stage-box"/>
-    <rect x="14" y="14" width="22" height="16" class="step-pill" style="fill:#7c8f6f;"/>
+    
+    <!-- Stage Header -->
+    <rect x="14" y="14" width="22" height="16" class="step-pill" style="fill:#b45309;"/>
     <text x="25" y="26" text-anchor="middle" class="step-pill-text">02</text>
-    <text x="44" y="27" class="stage-title">Storage Lake</text>
-    <text x="14" y="46" class="stage-sub">Amazon S3 Cloud</text>
+    <text x="44" y="27" class="stage-title">S3 Lakehouse</text>
+    <text x="14" y="46" class="stage-sub">3-Tier Storage Lake</text>
 
-    <!-- Content Items -->
-    <g transform="translate(14, 62)">
-      <rect width="152" height="42" class="item-badge"/>
-      <text x="10" y="18" class="item-text">Bronze Zone</text>
-      <text x="10" y="32" class="item-desc">Raw JSON &amp; CSV files</text>
+    <!-- Bronze Tier -->
+    <g transform="translate(12, 60)">
+      <rect width="156" height="38" class="item-badge-bronze"/>
+      <text x="10" y="15" fill="#b45309" class="badge-tag">BRONZE TIER</text>
+      <text x="10" y="29" class="node-name">Raw JSON &amp; CSV</text>
     </g>
 
-    <g transform="translate(14, 114)">
-      <rect width="152" height="42" class="item-badge"/>
-      <text x="10" y="18" class="item-text">Silver Zone</text>
-      <text x="10" y="32" class="item-desc">Cleaned Parquet datasets</text>
+    <!-- Inner connector arrow -->
+    <line x1="90" y1="98" x2="90" y2="106" stroke="#cbd5e1" stroke-width="1.2" marker-end="url(#m-arr-inner)"/>
+
+    <!-- Silver Tier -->
+    <g transform="translate(12, 106)">
+      <rect width="156" height="40" class="item-badge-silver"/>
+      <text x="10" y="14" fill="#475569" class="badge-tag">SILVER TIER</text>
+      <text x="10" y="27" class="node-name">Cleaned Parquet</text>
+      <text x="10" y="36" class="node-sub">Hive Partitioned</text>
     </g>
 
-    <g transform="translate(14, 166)">
-      <rect width="152" height="42" class="item-badge"/>
-      <text x="10" y="18" class="item-text">Data Validation</text>
-      <text x="10" y="32" class="item-desc">Schema and null checks</text>
+    <!-- Inner connector arrow -->
+    <line x1="90" y1="146" x2="90" y2="154" stroke="#cbd5e1" stroke-width="1.2" marker-end="url(#m-arr-inner)"/>
+
+    <!-- Gold Tier -->
+    <g transform="translate(12, 154)">
+      <rect width="156" height="40" class="item-badge-gold"/>
+      <text x="10" y="14" fill="#a16207" class="badge-tag">GOLD TIER</text>
+      <text x="10" y="27" class="node-name">Analytical Views</text>
+      <text x="10" y="36" class="node-sub" style="fill:#854d0e;">Regional Benchmarks</text>
     </g>
+
+    <!-- Stage Footer -->
+    <text x="90" y="214" text-anchor="middle" class="badge-tag" fill="#64748b">AWS S3 LAKEHOUSE</text>
   </g>
 
-  <!-- Stage 3: Analytics Engine (Focal - Atomic Tangerine) -->
-  <g transform="translate(530, 45)">
-    <rect width="180" height="230" class="stage-box-focal"/>
+
+  <!-- =========================================================================
+       STAGE 03: ANALYTICS CORE (FOCAL ★) (x=515, w=210, h=230)
+       ========================================================================= -->
+  <g transform="translate(515, 45)">
+    <rect width="210" height="230" class="stage-box-focal"/>
+    
+    <!-- Stage Header -->
     <rect x="14" y="14" width="22" height="16" class="step-pill-focal"/>
     <text x="25" y="26" text-anchor="middle" class="step-pill-text">03</text>
     <text x="44" y="27" class="stage-title-focal">Analytics Core ★</text>
-    <text x="14" y="46" class="stage-sub" style="color:#eb6c36;">DuckDB &amp; dbt Models</text>
+    <text x="14" y="46" class="stage-sub-focal">OLAP &amp; Anomaly Engine</text>
 
-    <!-- Content Items -->
-    <g transform="translate(14, 62)">
-      <rect width="152" height="42" class="item-badge-focal"/>
-      <text x="10" y="18" class="item-text" style="font-weight:700; fill:#eb6c36;">Price Normalization</text>
-      <text x="10" y="32" class="item-desc">Standard unit pricing</text>
+    <!-- DuckDB Compute -->
+    <g transform="translate(14, 60)">
+      <rect width="182" height="40" class="item-badge-focal-sub"/>
+      <text x="10" y="14" fill="#eb6c36" class="badge-tag">DUCKDB OLAP</text>
+      <text x="10" y="27" class="node-name">Vectorized S3 Engine</text>
+      <text x="10" y="36" class="node-sub">Zero-copy httpfs scan</text>
     </g>
 
-    <g transform="translate(14, 114)">
-      <rect width="152" height="42" class="item-badge-focal"/>
-      <text x="10" y="18" class="item-text" style="font-weight:700; fill:#eb6c36;">Anomaly Engine</text>
-      <text x="10" y="32" class="item-desc">Z-Score disparity flags</text>
+    <!-- dbt Audit -->
+    <g transform="translate(14, 106)">
+      <rect width="182" height="38" class="item-badge-focal-sub"/>
+      <text x="10" y="14" fill="#eb6c36" class="badge-tag">DBT DATA AUDIT</text>
+      <text x="10" y="28" class="node-name">Automated Quality Tests</text>
     </g>
 
-    <g transform="translate(14, 166)">
-      <rect width="152" height="42" class="item-badge-focal"/>
-      <text x="10" y="18" class="item-text" style="font-weight:700; fill:#eb6c36;">Gold Aggregations</text>
-      <text x="10" y="32" class="item-desc">Regional price benchmarks</text>
+    <!-- Anomaly Engine (Focal Highlight) -->
+    <g transform="translate(14, 150)">
+      <rect width="182" height="46" class="item-badge-focal-core"/>
+      <text x="10" y="14" fill="#c2410c" class="badge-tag">STATISTICAL ENGINE</text>
+      <text x="10" y="28" class="node-name-focal">Dynamic Z-Score (Z &gt; 1.5)</text>
+      <text x="10" y="39" class="node-sub" style="fill:#c2410c;">Gouging &amp; Disparity Detection</text>
     </g>
+
+    <!-- Stage Footer -->
+    <text x="105" y="214" text-anchor="middle" class="badge-tag" fill="#eb6c36">VECTORIZED OLAP CORE</text>
   </g>
 
-  <!-- Stage 4: Live Insights -->
-  <g transform="translate(790, 45)">
+
+  <!-- =========================================================================
+       STAGE 04: CONSUMPTION & ALERTS (x=785, w=150, h=230)
+       ========================================================================= -->
+  <g transform="translate(785, 45)">
     <rect width="150" height="230" class="stage-box"/>
-    <rect x="14" y="14" width="22" height="16" class="step-pill" style="fill:#2e5aa8;"/>
+    
+    <!-- Stage Header -->
+    <rect x="14" y="14" width="22" height="16" class="step-pill" style="fill:#1d4ed8;"/>
     <text x="25" y="26" text-anchor="middle" class="step-pill-text">04</text>
-    <text x="44" y="27" class="stage-title">Streamlit</text>
-    <text x="14" y="46" class="stage-sub">Interactive App</text>
+    <text x="44" y="27" class="stage-title" style="fill:#1d4ed8;">Consumption</text>
+    <text x="14" y="46" class="stage-sub">Live Delivery</text>
 
-    <!-- Content Items -->
-    <g transform="translate(14, 62)">
-      <rect width="122" height="42" class="item-badge"/>
-      <text x="8" y="18" class="item-text">Price Tracker</text>
-      <text x="8" y="32" class="item-desc">Regional trends</text>
+    <!-- Streamlit UI -->
+    <g transform="translate(12, 60)">
+      <rect width="126" height="66" class="item-badge-app"/>
+      <text x="8" y="15" fill="#1d4ed8" class="badge-tag">STREAMLIT APP</text>
+      <text x="8" y="29" class="node-name" style="font-size: 10.5px;">Visual Intelligence</text>
+      <text x="8" y="42" class="node-sub">• Folium Price Map</text>
+      <text x="8" y="53" class="node-sub">• Spread &amp; Trends</text>
+      <text x="8" y="63" class="node-sub" style="fill:#1d4ed8; font-weight:700;">Live Demo ↗</text>
     </g>
 
-    <g transform="translate(14, 114)">
-      <rect width="122" height="42" class="item-badge"/>
-      <text x="8" y="18" class="item-text">Alerts Hub</text>
-      <text x="8" y="32" class="item-desc">Gouging alerts</text>
+    <!-- Discord Alerts -->
+    <g transform="translate(12, 134)">
+      <rect width="126" height="66" class="item-badge-bot"/>
+      <text x="8" y="15" fill="#5865f2" class="badge-tag">DISCORD BOT</text>
+      <text x="8" y="29" class="node-name" style="font-size: 10.5px; fill:#3730a3;">Automated Alerts</text>
+      <text x="8" y="42" class="node-sub" style="fill:#4338ca;">• ETL Telemetry</text>
+      <text x="8" y="53" class="node-sub" style="fill:#4338ca;">• Test Failures</text>
+      <text x="8" y="63" class="node-sub" style="fill:#c2410c; font-weight:700;">• Gouging Alerts</text>
     </g>
 
-    <g transform="translate(14, 166)">
-      <rect width="122" height="42" class="item-badge"/>
-      <text x="8" y="18" class="item-text">Discord Bot</text>
-      <text x="8" y="32" class="item-desc">Instant webhooks</text>
-    </g>
+    <!-- Stage Footer -->
+    <text x="75" y="214" text-anchor="middle" class="badge-tag" fill="#64748b">USER &amp; OPS CHANNELS</text>
   </g>
+
 </svg>
